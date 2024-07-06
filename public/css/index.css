@@ -48,6 +48,12 @@ h2 {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 50px 0px;
+    margin: 0px;
 
+}
+
+.carrossel img {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
 }

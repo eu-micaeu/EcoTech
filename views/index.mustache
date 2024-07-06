@@ -17,14 +17,10 @@
 
     <h2>Produtos Recomendados pelo site</h2>
 
-    <div class="carrossel"> 
-
-      <img src="{{image1}}" alt="image1">
-      <img src="{{image2}}" alt="image2">
-      <img src="{{image3}}" alt="image3">
-      <img src="{{image4}}" alt="image4">
-      <img src="{{image5}}" alt="image5"> 
-
+    <div class="carrossel">
+        {{#images}}
+            <img src="{{.}}" alt="Imagem">
+        {{/images}}
     </div>
 
     <h2>Departamentos</h2>

@@ -13,7 +13,8 @@ form{
     width: 25%;
     border-radius: 10px;
     background-color: #1a1a1a;
-    margin-bottom: 70px;
+    margin-bottom: 10px;
+    padding: 60px 10px;
 
 }
 
@@ -29,7 +30,7 @@ form a:hover{
     color: #8ae492;
 }
 
-h2{
+h1, h2{
     color: #12BD27;
     margin: auto;
     margin-bottom: 10px;

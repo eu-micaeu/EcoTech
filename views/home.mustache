@@ -23,7 +23,8 @@
 
         <div class="item">
 
-            <img src="{{imagem_item}}" alt="Imagem do item">
+            <img id="base64Image" src="data:image/png;base64,{{imagem_item}}" alt="Imagem em Base64">
+
             <p>{{nome_item}}</p>
             <p>{{preco_item}}</p>
 
@@ -33,13 +34,13 @@
 
     </div>
 
-    <form action="/itens/registerItem" method="post" enctype="multipart/form-data">>
+    <form action="/itens/registerItem" method="POST" enctype="multipart/form-data">
 
         <label for="nome_item">Nome </label>
         <input id="nome_item" name="nome_item" type="text">
 
         <label for="imagem_item">Imagem do Item:</label>
-        <input type="file" id="imagem_item" name="imagem_item" accept="image/*" required><br>
+        <input type="file" id="imagem_item" name="imagem_item" ><br>
 
         <label for="descricao_item">Descrição </label>
         <input id="descricao_item" name="descricao_item" type="text">

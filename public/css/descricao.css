@@ -7,6 +7,8 @@
     justify-content: space-around;
     align-items: center;
     color: white;
+    margin: 10vh 0;
+    width: 750px;
 
 }
 
@@ -23,20 +25,65 @@
 }
 
 .item #nomeItem {
+
     font-size: 24px;
     margin-left: 40px;
     padding: 10px;
     border-bottom: 1px solid #12BD27;
+
 }
 
 .item #estadoItem {
+
     font-size: 18px;
     margin-left: 40px;
     padding: 10px;
+
 }
 
 .item #precoItem {
-    font-size: 18px;
+
+    font-size: 26px;
     margin-left: 40px;
     padding: 10px;
+    font-weight: bold;
+
+}
+
+hr {
+
+    width: 750px;
+    border-top: 1px solid #12BD27;
+    border-bottom: 1px solid #12BD27;
+    border-left: none;
+    border-right: none;
+
+}
+
+.descricao {
+
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    margin-top: 10vh;
+
+}
+
+.descricao h2{
+
+    margin: 0;
+    width: 750px;
+    text-align: left;
+    color: #12BD27;
+
+}
+
+.descricao #descricaoItem {
+
+    font-size: 18px;
+    color: white;
+    
 }

@@ -4,17 +4,18 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/Logo.png" type="image/x-icon">
     <title>EcoTech</title>
 </head>
 <body>
 
     <header>
         
-        <img src="images/Logo.png" alt="Logo">
+        <img src="images/Logo.png" alt="Logo" width="150" height="150">
 
         <nav>
             <ul>
-                <li><a href="/anunciar">ANUNCIAR</a></li>
+                <li><a href="/sobre">SOBRE</a></li>
                 <li><a href="/entrar">ENTRAR</a></li>
             </ul>
         </nav>
@@ -30,18 +31,63 @@
     
     </div>
 
+    <div class="carrossel">
 
+        {{#dataValuesArray}}
 
-    <div class="carrossel-wrapper">
+        <div class="item">
+            <img id="base64Image" src="data:image/png;base64,{{imagem_item}}" alt="Imagem em Base64" width="150" height="150" onclick="window.location.href='descricao?id={{id_item}}'">
+            <p>{{nome_item}}</p>
+            <p><strong>R${{preco_item}}</strong></p>
+        </div>
 
-        <div class="carrossel">
-            {{#dataValuesArray}}
-            <div class="item">
-                <img id="base64Image" src="data:image/png;base64,{{imagem_item}}" alt="Imagem em Base64" width="150" height="150" onclick="window.location.href='descricao?id={{id_item}}'">
-                <p>{{nome_item}}</p>
-                <p><strong>R${{preco_item}}</strong></p>
-            </div>
-            {{/dataValuesArray}}
+        {{/dataValuesArray}}
+
+    </div>
+
+    <div class="titulo">
+
+        <img src="images/departamento.png" alt="Logo" width=42 height=42>
+    
+        <h2>Departamentos</h2>
+    
+    </div>
+
+    <div class="carrossel">
+
+        <div class="card">
+            
+            <img src="images/memoriaram.jpg" alt="Memória RAM'S" width="150" height="150">
+            <p>Memória RAM'S</p>
+
+        </div>
+
+        <div class="card">
+            
+            <img src="images/monitor.jpg" alt="Monitores" width="150" height="150">
+            <p>Monitores</p>
+            
+        </div>
+
+        <div class="card">
+            
+            <img src="images/processador.jpg" alt="Processadores" width="150" height="150">
+            <p>Processadores</p>
+            
+        </div>
+
+        <div class="card">
+            
+            <img src="images/placadevideo.jpg" alt="Placas de Videos" width="150" height="150">
+            <p>Placas de Vdeos</p>
+            
+        </div>
+
+        <div class="card">
+            
+            <img src="images/fontes.jpg" alt="Fontes" width="150" height="150">
+            <p>Fontes</p>
+            
         </div>
 
     </div>

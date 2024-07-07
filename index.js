@@ -18,13 +18,12 @@ app.use('/entrar',require('./pags/entrar'));
 app.use('/registrar',require('./pags/registrar'));
 app.use('/anunciar',require('./pags/anunciar'));
 app.use('/descricao',require('./pags/descricao'));
+app.use('/sobre',require('./pags/sobre'));
 
 // Rotas para as funções
 
 app.use('/itens', require('./routes/itemRoutes'));
 app.use('/usuario', require('./routes/usuarioRoutes'));
-
-
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running on http://localhost:3000');

@@ -1,25 +1,16 @@
 const express = require('express');
-const itemControllers = require('../controllers/usuarioController');
+const bodyParser = require('body-parser');
+const Usuario = require('../models/Usuario'); // Certifique-se de ajustar o caminho conforme necessário
+
 const router = express.Router();
 
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+
+// Rota para renderizar a página de login
 router.get("/", async (req, res) => {
-
     res.render("entrar");
-
 });
 
-router.post("/", async (req, res) => {
-
-    const { email_usuario, senha_usuario } = req.body;
-
-    const usuario = await Usuario.findOne({ where: { email_usuario, senha_usuario } });
-
-    if (usuario) {
-        res.redirect('/home');
-    } else {
-        res.redirect('/entrar');
-    }
-
-});
 
 module.exports = router;

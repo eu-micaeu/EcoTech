@@ -1,20 +1,26 @@
 
 header {
     display: flex;
-    width: 100%;
+    width: 70vw;
     height: 8rem;
     background-color: black;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #12BD27;
+    padding: 20px 0;
 }
 
+header img:hover {
+    
+    cursor: pointer;
+
+}
 
 header nav {
 
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    width: 70vw;
 
 }
 

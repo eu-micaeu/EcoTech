@@ -4,8 +4,11 @@ const Item = require('../models/Item');
 const upload = multer({ storage: multer.memoryStorage() });
 
 exports.registerItem = [
+    
     upload.single('imagem_item'),
+
     async (req, res) => {
+
         const { nome_item, descricao_item, preco_item, estado_item } = req.body;
         const file = req.file;
 
@@ -53,6 +56,7 @@ exports.pegarItens = async () => {
 
 exports.pegarItemPorId = async (id) => {
     try {
+
         // Encontre o item com o ID fornecido
         const item = await Item.findByPk(id);
 
@@ -61,4 +65,27 @@ exports.pegarItemPorId = async (id) => {
     } catch (error) {
         throw new Error('Erro ao buscar item por ID: ' + error.message);
     }
+}
+
+exports.atualizarItemporId = async (id) => {
+
+    try {
+        // Encontre o item com o ID fornecido
+        const item = await Item.findByPk(id);
+
+        // Quero passar informações pelo body
+        const { nome_item, descricao_item, preco_item, estado_item } = req.body;
+
+        // Atualize o item com as informações fornecidas
+        item.nome_item = nome_item;
+        item.descricao_item = descricao_item;
+        item.preco_item = preco_item;
+        item.estado_item = estado_item;
+
+        return item;
+
+    } catch (error) {
+        throw new Error('Erro ao atualizar item por ID: ' + error.message);
+    }
+
 }

@@ -9,42 +9,31 @@
 <body>
 
     <header>
-        <img src="images/Logo.png" alt="Logo">
+
+        <img src="images/Logo.png" alt="Logo" width="150" height="150">
 
     </header>
 
+    {{#item}}
+
     <div class="item">
-
-        {{#item}}
-
-        <div class="item">
-
-            <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item" width=200 height=200>
-
-            <div id=informacoesDoItem>
-
-                <p id="nomeItem">{{nome_item}}</p>
-
-                <p id="estadoItem">Condição: {{estado_item}} </p>
-
-                <p id=precoItem>R${{preco_item}}</p>
-
-            </div>
-
+        <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item" width=200 height=200>
+        <div id=informacoesDoItem>
+            <p id="nomeItem">{{nome_item}}</p>
+            <p id="estadoItem">Condição: {{estado_item}} </p>
+            <p id=precoItem>R${{preco_item}}</p>
         </div>
-        
-        {{/item}}
-
     </div>
 
-    <div class="Descricao">
+    <hr>
 
-        <h2> Descrição Geral </h2>
-        <p>{{descricao_item}}</p>
-
+    <div class="descricao">
+        <h2>Descrição</h2>
+        <p id="descricaoItem">{{descricao_item}}</p>
     </div>
 
-    
+    {{/item}}
+
 
 </body>
 

@@ -9,13 +9,13 @@
 <body>
 
     <header>
-        <img src="images/Logo.png" alt="Logo">
-
+    
+        <img src="images/Logo.png" alt="Logo" width="150" height="150">
         <a href="/entrar"></a>
 
     </header>
 
-    <form action="/usuario/registerUsuario" method="post" enctype="multipart/form-data">>
+    <form action="/usuario/registerUsuario" method="post">
 
         <h2>Registrar</h2>
 
@@ -31,20 +31,15 @@
         <label for="telefone_usuario">Telefone: </label>
         <input id="telefone_usuario" name="telefone_usuario" type="text">
 
-        <label for="endereco_usuario">Senha:</label>
-        <input id="endereco_usuario" name="senha_usuario" type="text">
+        <label for="senha_usuario">Senha:</label>
+        <input id="senha_usuario" name="senha_usuario" type="password">
 
         <a href="/entrar"> Já possui uma conta? Faça o login!</a>
 
-    <button type="submit">Confirmar</button>
+        <button type="submit">Confirmar</button>
     
     </form>
 
-    <footer>
-        
-        <p> Todos os direitos reservados </p>
-
-    </footer>
 
 </body>
 

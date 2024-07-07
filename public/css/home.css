@@ -61,10 +61,11 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 5rem;
+    border: 1px solid #12BD27;
     font-size: 20px;
     margin-bottom: 10rem;
-    color: #12BD27;
+    border-radius: 10px;
 
 }
 
@@ -76,20 +77,22 @@ form{
 }
 
 form label{
-
-    color: #ffffff;
+    color: #12BD27;
     margin-top: 1rem;
+    margin-left: 10%;
+    margin-bottom: 0.5rem;
 
 }
 
 form input{
-    border: none;
     border: 1px solid #12BD27;
-    background-color: #000000;
     border-radius: 10px;
+    padding: 10px;
     font-size: 18px;
     margin: 0px auto ;
-    width:80%;
+    width: 80%;
+    background-color: #000000;
+    color: #fff;
 
 }
 
@@ -100,8 +103,9 @@ form button {
     border-radius: 10px;
     background-color: #12BD27 ;
     border: none;
-    width: 30%;
+    width: 50%;
     margin: 20px auto;
+    color: white;
 }
 
 form button:hover {
@@ -136,4 +140,14 @@ form button:hover {
     width: 250px;
     height: 250px;
     padding: 10px;
+}
+
+
+footer{
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #12BD27;
+    color: #fff;
+    height: 5rem;
+    text-align: center;
 }

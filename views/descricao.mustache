@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EcoTech</title>
+</head>
+<body>
+
+    <header>
+        <img src="images/Logo.png" alt="Logo">
+
+        <a href="/login">ANUNCIAR</a>
+
+    </header>
+
+    <div class="item">
+
+        {{#dataValuesArray}}
+
+        <div class="item">
+
+            <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item">
+            <p>{{nome_item}}</p>
+            <p>{{preco_item}}</p>
+
+        </div>
+        
+        {{/dataValuesArray}}
+
+    </div>
+
+    <div class="Descricao">
+
+        <h2> Descrição Geral </h2>
+        <p>{{descricao_item}}</p>
+
+    </div>
+
+    
+
+</body>
+
+</html>

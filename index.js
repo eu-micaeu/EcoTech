@@ -12,9 +12,12 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
-// Rotas
-app.use('/', require('./controls/main'));
+// Rotas para as páginas
+app.use('/', require('./pags/home'));
 
-app.listen(3000, () => {
+// Rotas para as funções
+app.use('/itens', require('./routes/itemRoutes'));
+
+app.listen(process.env.PORT, () => {
     console.log('Server is running on http://localhost:3000');
 });

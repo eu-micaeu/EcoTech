@@ -28,9 +28,6 @@ exports.registerItem = [
 
             console.log(item);
 
-            // Responde com sucesso
-            res.status(201).json({ message: 'Item registrado com sucesso', item });
-
             res.redirect('/');
 
         } catch (error) {
@@ -42,8 +39,10 @@ exports.registerItem = [
 
 exports.pegarItens = async () => {
     try {
-        // Realiza a consulta no banco de dados
-        const itens = await Item.findAll();
+        // Encontre os primeiros 5 itens no banco de dados
+        const itens = await Item.findAll({
+            limit: 5
+        });
 
         return itens;
 
@@ -51,3 +50,15 @@ exports.pegarItens = async () => {
         throw new Error('Erro ao buscar itens do banco de dados: ' + error.message);
     }
 };
+
+exports.pegarItemPorId = async (id) => {
+    try {
+        // Encontre o item com o ID fornecido
+        const item = await Item.findByPk(id);
+
+        return item;
+
+    } catch (error) {
+        throw new Error('Erro ao buscar item por ID: ' + error.message);
+    }
+}

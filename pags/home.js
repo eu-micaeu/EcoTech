@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
         res.render("home", {dataValuesArray});
 
     } catch (error) {
-        console.error('Erro ao registrar item:', error.stack); 
+        console.error('Erro ao listar itens:', error.stack); 
 
     }
 });

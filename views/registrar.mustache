@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/entrar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EcoTech</title>
+</head>
+<body>
+
+    <header>
+        <img src="images/Logo.png" alt="Logo">
+
+        <a href="/entrar"></a>
+
+    </header>
+
+    <form action="/usuario/registerUsuario" method="post" enctype="multipart/form-data">>
+
+        <h2>Registrar</h2>
+
+        <label for="nome_usuario">Nome: </label>
+        <input id="nome_usuario" name="nome_usuario" type="text">
+
+        <label for="email_usuario">Email:</label>
+        <input id="email_usuario" name="email_usuario" type="text">
+
+        <label for="cpf_usuario">CPF:</label>
+        <input id="cpf_usuario" name="cpf_usuario" type="text">
+
+        <label for="telefone_usuario">Telefone: </label>
+        <input id="telefone_usuario" name="telefone_usuario" type="text">
+
+        <label for="endereco_usuario">Senha:</label>
+        <input id="endereco_usuario" name="senha_usuario" type="text">
+
+        <a href="/entrar"> Já possui uma conta? Faça o login!</a>
+
+    <button type="submit">Confirmar</button>
+    
+    </form>
+
+    <footer>
+        
+        <p> Todos os direitos reservados </p>
+
+    </footer>
+
+</body>
+
+</html>

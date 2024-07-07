@@ -2,39 +2,58 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/entrar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EcoTech</title>
 </head>
 <body>
 
     <header>
-        <img src="images/Logo.png" alt="Logo">
-
-        <a href="/login">ANUNCIAR</a>
+        
+        <a href="/" ><img src="images/Logo.png" alt="Logo"> </a>
 
     </header>
 
-    <form action="/itens/registerItem" method="post" enctype="multipart/form-data">>
+     <form action="/itens/registerItem" method="POST" enctype="multipart/form-data">
 
-        <label for="nome_item">Nome </label>
+        <h2>Novo Anúncio</h2>
+
+        <label for="nome_item">Nome: </label>
         <input id="nome_item" name="nome_item" type="text">
 
         <label for="imagem_item">Imagem do Item:</label>
-        <input type="file" id="imagem_item" name="imagem_item" accept="image/*" required><br>
+        <input type="file" id="imagem_item" name="imagem_item" ><br>
 
-        <label for="descricao_item">Descrição </label>
-        <input id="descricao_item" name="descricao_item" type="text">
+        <label for="descricao_item">Descrição: </label>
+        <textarea id="descricao_item" name="descricao_item" rows="4" cols="50"></textarea>
 
-        <label for="preco_item">Preço </label>
+        <label for="preco_item">Preço: </label>
         <input id="preco_item" name="preco_item" type="text">
 
-        <label for="estado_item">Estado</label>
+        <label for="estado_item">Estado:</label>
         <input id="estado_item" name="estado_item" type="text">
 
-    <button type="submit">Enviar anúncio</button>
+        <button type="submit">Enviar anúncio</button>
     
     </form>
+
+     <% if (typeof alertMessage !== 'undefined' && alertMessage !== '') { %>
+        
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        
+            <%= alertMessage %>
+        
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        
+                <span aria-hidden="true">&times;</span>
+        
+            </button>
+        
+        </div>
+    
+    <% } %>
+    
+    
 
     <footer>
         

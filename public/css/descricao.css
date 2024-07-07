@@ -1,0 +1,42 @@
+@import url('global.css');
+
+.item {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+
+}
+
+.item #informacoesDoItem{
+
+    height: 200px;
+
+}
+
+.item p{
+
+    margin: 0;
+
+}
+
+.item #nomeItem {
+    font-size: 24px;
+    margin-left: 40px;
+    padding: 10px;
+    border-bottom: 1px solid #12BD27;
+}
+
+.item #estadoItem {
+    font-size: 18px;
+    margin-left: 40px;
+    padding: 10px;
+}
+
+.item #precoItem {
+    font-size: 18px;
+    margin-left: 40px;
+    padding: 10px;
+}

@@ -14,9 +14,17 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Rotas para as páginas
 app.use('/', require('./pags/home'));
+app.use('/entrar',require('./pags/entrar'));
+app.use('/registrar',require('./pags/registrar'));
+app.use('/anunciar',require('./pags/anunciar'));
+app.use('/descricao',require('./pags/descricao'));
 
 // Rotas para as funções
+
 app.use('/itens', require('./routes/itemRoutes'));
+app.use('/usuario', require('./routes/usuarioRoutes'));
+
+
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running on http://localhost:3000');

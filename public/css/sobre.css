@@ -16,6 +16,7 @@ h2 {
     background-color: #1a1a1a;
     border-radius: 10px;
     width: 70vw;
+    margin-bottom: 5rem;
 }
 
 .sobre h2{
@@ -28,5 +29,6 @@ h2 {
 
     color: white;
 
-    margin: 0;
+    margin: 5px 30px;
+    font-size: 20px;
 }

@@ -12,14 +12,20 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
+
+//Cookies
+
+
 // Rotas para as páginas
-app.use('/', require('./pags/home'));
-app.use('/entrar',require('./pags/entrar'));
-app.use('/registrar',require('./pags/registrar'));
-app.use('/anunciar',require('./pags/anunciar'));
-app.use('/descricao',require('./pags/descricao'));
-app.use('/sobre',require('./pags/sobre'));
-app.use('/perfil',require('./pags/perfil'));
+app.use('/', require('./public/js/home'));
+app.use('/entrar',require('./public/js/entrar'));
+app.use('/registrar',require('./public/js/registrar'));
+app.use('/anunciar',require('./public/js/anunciar'));
+app.use('/descricao',require('./public/js/descricao'));
+app.use('/sobre',require('./public/js/sobre'));
+app.use('/perfil',require('./public/js/perfil'));
+app.use('/departamento',require('./public/js/departamento'));
+
 
 // Rotas para as funções
 

@@ -67,25 +67,19 @@ exports.pegarItemPorId = async (id) => {
     }
 }
 
-exports.atualizarItemporId = async (id) => {
-
+// Função para pegar item por departamento
+exports.pegarItensPorDepartamento = async (id) => {
     try {
-        // Encontre o item com o ID fornecido
-        const item = await Item.findByPk(id);
+        // Encontre os itens no banco de dados que possuem o departamento fornecido
+        const itens = await Item.findAll({
+            where: {
+                id_departamento: id
+            }
+        });
 
-        // Quero passar informações pelo body
-        const { nome_item, descricao_item, preco_item, estado_item } = req.body;
-
-        // Atualize o item com as informações fornecidas
-        item.nome_item = nome_item;
-        item.descricao_item = descricao_item;
-        item.preco_item = preco_item;
-        item.estado_item = estado_item;
-
-        return item;
+        return itens;
 
     } catch (error) {
-        throw new Error('Erro ao atualizar item por ID: ' + error.message);
+        throw new Error('Erro ao buscar itens por departamento: ' + error.message);
     }
-
-}
+};

@@ -52,3 +52,12 @@ exports.loginUsuario = async (req, res) => {
 };
 
 
+exports.logoutUsuario = async (req, res) => {
+
+    req.session.destroy()
+
+    aviso = "Usuário deslogado"
+
+    return res.render("index", {aviso: aviso})
+
+}

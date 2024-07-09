@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Usuario = require('../models/Usuario'); // Certifique-se de ajustar o caminho conforme necessário
+const Usuario = require('../../models/Usuario'); // Certifique-se de ajustar o caminho conforme necessário
 
 const router = express.Router();
 

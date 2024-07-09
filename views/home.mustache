@@ -17,18 +17,18 @@
             <ul>
                 <li><a href="/sobre">QUEM SOMOS</a></li>
 
-                {{#isLoggedIn}}
+                {{#estaLogado}}
                 <li style="color: #12BD27; font-size: 20px;">
                     <a href="/perfil">PERFIL</a> / 
-                    <form action="/entrar" method="POST" style="display:inline;">
+                    <form action="/usuario/logoutUsuario" method="POST" style="display:inline;">
                         <button type="submit" style="color: red; font-size: 20px; background: none; border: none; cursor: pointer;">SAIR</button>
                     </form>
                 </li>
-                {{/isLoggedIn}}
+                {{/estaLogado}}
 
-                {{^isLoggedIn}}
+                {{^estaLogado}}
                 <li><a href="/entrar">ENTRAR</a></li>
-                {{/isLoggedIn}}
+                {{/estaLogado}}
             </ul>
         </nav>
 

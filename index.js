@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mustacheExpress = require('mustache-express');
@@ -14,6 +15,16 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 //Cookies
+const cookieParser = require("cookie-parser")
+app.use(cookieParser())
+
+//Sessão
+const session = require("express-session")
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false
+}));
 
 
 // Rotas para as páginas

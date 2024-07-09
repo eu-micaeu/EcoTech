@@ -40,6 +40,7 @@ exports.loginUsuario = async (req, res) => {
 
         if (usuario) {
             console.log(`Usuário encontrado: ${usuario.email_usuario}`);
+            req.session.usuario = usuario;
             res.redirect('/');
         } else {
             console.log('Usuário não encontrado');
@@ -56,8 +57,8 @@ exports.logoutUsuario = async (req, res) => {
 
     req.session.destroy()
 
-    aviso = "Usuário deslogado"
+    console.log('Sessão cancelada');
 
-    return res.render("index", {aviso: aviso})
+    res.redirect('/entrar');
 
 }

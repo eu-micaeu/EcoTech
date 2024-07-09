@@ -8,7 +8,10 @@ router.get("/", async (req, res) => {
 
     const itens = await itemControllers.pegarItensPorDepartamento(req.query.id);
 
-    res.render("departamento", {itens: itens});
+    if (req.query.id == 1) {
+        res.render("departamento", {itens: itens, departamento: "Monitores"});
+    }
+    
 
 });
 

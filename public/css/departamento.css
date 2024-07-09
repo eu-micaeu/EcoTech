@@ -1,1 +1,37 @@
 @import url(global.css);
+
+h1{
+
+    color: #12BD27;
+
+}
+
+.itens{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90vw;
+    margin-top: 50px;
+    color: white;
+
+}
+
+.itens .item{
+
+    display: inline-block;
+    width: 20vw;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+
+}
+
+.itens .item img{
+
+    border-radius: 10px;
+
+}

@@ -19,6 +19,7 @@ app.use('/registrar',require('./pags/registrar'));
 app.use('/anunciar',require('./pags/anunciar'));
 app.use('/descricao',require('./pags/descricao'));
 app.use('/sobre',require('./pags/sobre'));
+app.use('/perfil',require('./pags/perfil'));
 
 // Rotas para as funções
 

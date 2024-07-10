@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/entrar.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EcoTech</title>
     <link rel="icon" href="images/Logo.png" type="image/x-icon">
@@ -10,35 +10,40 @@
 <body>
 
     <header>
-    
+        
         <img src="images/Logo.png" alt="Logo" width="150" height="150">
-        <a href="/entrar"></a>
+
+        <nav>
+            <ul>
+                <li><a href="/sobre">QUEM SOMOS</a></li>
+
+                {{#estaLogado}}
+                <li style="color: #12BD27; font-size: 20px;">
+                    <a href="/">HOME</a> / 
+                    <form action="/usuario/logoutUsuario" method="POST" style="display:inline;">
+                        <button type="submit" style="color: red; font-size: 20px; background: none; border: none; cursor: pointer;">SAIR</button>
+                    </form>
+                </li>
+                {{/estaLogado}}
+
+                {{^estaLogado}}
+
+                {{/estaLogado}}
+            </ul>
+        </nav>
 
     </header>
 
-    <form action="/usuario/registerUsuario" method="post">
+    {{#usuario}}
 
-        <h2>Registrar</h2>
+    <div class="perfil">
+        <h2>Perfil</h2>
+        <p>Nome: {{nome_usuario}}</p>
+        <p>Email: {{email_usuario}}</p>
+        <p>Telefone: {{telefone_usuario}}</p>
+    </div>
 
-        <label for="nome_usuario">Nome: </label>
-        <input id="nome_usuario" name="nome_usuario" type="text">
-
-        <label for="email_usuario">Email:</label>
-        <input id="email_usuario" name="email_usuario" type="text">
-
-        <label for="cpf_usuario">CPF:</label>
-        <input id="cpf_usuario" name="cpf_usuario" type="text">
-
-        <label for="telefone_usuario">Telefone: </label>
-        <input id="telefone_usuario" name="telefone_usuario" type="text">
-
-        <label for="senha_usuario">Senha:</label>
-        <input id="senha_usuario" name="senha_usuario" type="password">
-
-        <button type="submit">Salvar alterações</button>
-    
-    </form>
-
+    {{/usuario}}
 
 </body>
 

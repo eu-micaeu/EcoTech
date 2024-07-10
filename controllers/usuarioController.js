@@ -52,7 +52,6 @@ exports.loginUsuario = async (req, res) => {
     }
 };
 
-
 exports.logoutUsuario = async (req, res) => {
 
     req.session.destroy()
@@ -62,3 +61,18 @@ exports.logoutUsuario = async (req, res) => {
     res.redirect('/entrar');
 
 }
+
+// Função para resgatar informações do usuário
+exports.pegarUsuario = async (id) => {
+
+    try {
+        
+        const usuario = await Usuario.findOne({ where: { id_usuario: id } });
+
+        return usuario;
+
+    } catch (error) {
+        console.error('Erro ao pegar usuário:', error);
+        res.status(500).json({ error: error.message });
+    }
+};

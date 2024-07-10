@@ -10,8 +10,9 @@ router.get("/", async (req, res) => {
 
     if (req.query.id == 1) {
         res.render("departamento", {itens: itens, departamento: "Monitores"});
+    }else if (req.query.id == 2) {
+        res.render("departamento", {itens: itens, departamento: "Fontes"});
     }
-    
 
 });
 

@@ -1,0 +1,22 @@
+@import url(global.css);
+
+.perfil{
+    margin-top: 5rem;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 67vw;
+    margin-bottom: 5rem;
+    padding: 20px;
+}
+
+.perfil h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.perfil p{
+    color: white;
+    margin: 5px 30px;
+    font-size: 20px;
+}

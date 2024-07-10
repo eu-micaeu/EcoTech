@@ -15,8 +15,13 @@ h2 {
     margin-top: 5rem;
     background-color: #1a1a1a;
     border-radius: 10px;
-    width: 70vw;
+    width: 90vw;
     margin-bottom: 5rem;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+
+    
 }
 
 .sobre h2{
@@ -28,7 +33,54 @@ h2 {
 .sobre p{
 
     color: white;
-
     margin: 5px 30px;
     font-size: 20px;
+}
+
+.sobre-texto{
+
+    
+
+}
+
+.topico{
+
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 30vh;
+    justify-content: center;
+    margin-bottom: 10rem;
+    gap: 90px;
+
+    
+
+}
+
+.topico1{
+    flex: 1;
+    height: 30vh;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    transition: ease 0.5s;
+
+}
+
+.topico1:hover {
+
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+.topico h2,p{
+
+    text-align: center;
+}
+
+
+p{
+    color: white;
+    font-size: 18px;
 }

@@ -13,7 +13,6 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
-
 //Cookies
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
@@ -25,7 +24,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
 
 // Rotas para as páginas
 app.use('/', require('./public/js/home'));

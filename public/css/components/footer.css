@@ -2,8 +2,11 @@ footer{
     bottom: 0;
     width: 100%;
     border-top: 1px solid #12BD27;
-    color: #fff;
-    height: 10%;
+    color: #ffffff;
     text-align: center;
-    margin-top: 100px;
+    display: flex;
+    position: relative;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
 }

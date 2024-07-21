@@ -4,14 +4,34 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 
-    console.log(req.query.id);
+    try {
 
-    const itens = await itemControllers.pegarItensPorDepartamento(req.query.id);
+        const estaLogado = req.session.usuario ? true : false;
 
-    if (req.query.id == 1) {
-        res.render("departamento", {itens: itens, departamento: "Monitores"});
-    }else if (req.query.id == 2) {
-        res.render("departamento", {itens: itens, departamento: "Fontes"});
+        if (estaLogado) {
+
+            const itens = await itemControllers.pegarItensPorDepartamento(req.query.id);
+
+            if (req.query.id == 1) {
+        
+                res.render("departamento", {itens: itens, departamento: "Monitores", estaLogado: estaLogado});
+        
+            }else if (req.query.id == 2) {
+        
+                res.render("departamento", {itens: itens, departamento: "Fontes", estaLogado: estaLogado});
+        
+            }
+
+        }else{
+
+            res.redirect("/entrar");
+
+        }
+
+    } catch (error) {
+
+        console.error('Erro ao listar itens:', error.stack); 
+
     }
 
 });

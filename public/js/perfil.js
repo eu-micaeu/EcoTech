@@ -4,15 +4,26 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 
-    const estaLogado = req.session.usuario ? true : false;
+    try {
 
-    // Verificar se o login foi feito e modificar o botão de login para logout
-    if (estaLogado) {
-        const usuario = await usuarioControllers.pegarUsuario(req.session.usuario.id_usuario);
-        console.log(usuario);
-        res.render("perfil", {estaLogado: estaLogado, usuario: usuario});
-    }else{
-        res.render("perfil");
+        const estaLogado = req.session.usuario ? true : false;
+        
+        if (estaLogado) {
+        
+            const usuario = await usuarioControllers.pegarUsuario(req.session.usuario.id_usuario);
+        
+            res.render("perfil", {estaLogado: estaLogado, usuario: usuario});
+        
+        }else{
+        
+            res.render("perfil");
+        
+        }
+
+    } catch (error) {
+
+        console.error('Erro ao listar itens:', error.stack); 
+
     }
 
 });

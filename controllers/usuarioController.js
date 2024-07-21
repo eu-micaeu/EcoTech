@@ -2,29 +2,29 @@ const Usuario = require('../models/Usuario');
 
 exports.registerUsuario = async (req, res) => {
 
-        const { nome_usuario, email_usuario, cpf_usuario, telefone_usuario, senha_usuario } = req.body;
+    const { nome_usuario, email_usuario, cpf_usuario, telefone_usuario, senha_usuario } = req.body;
 
-        console.log(req.body);
-    
-        try {
-        
-            const usuario = await Usuario.create({
-                nome_usuario,
-                email_usuario,
-                cpf_usuario,
-                telefone_usuario,
-                senha_usuario
-            });
+    console.log(req.body);
 
-            console.log(usuario);
+    try {
 
-            res.redirect('/registrar');
+        const usuario = await Usuario.create({
+            nome_usuario,
+            email_usuario,
+            cpf_usuario,
+            telefone_usuario,
+            senha_usuario
+        });
 
-        } catch (error) {
-            console.error('Erro ao registrar usuário:', error);
-            res.status(500).json({ error: error.message });
-        }
-    };
+        console.log(usuario);
+
+        res.redirect('/registrar');
+
+    } catch (error) {
+        console.error('Erro ao registrar usuário:', error);
+        res.status(500).json({ error: error.message });
+    }
+};
 
 
 exports.loginUsuario = async (req, res) => {
@@ -66,7 +66,7 @@ exports.logoutUsuario = async (req, res) => {
 exports.pegarUsuario = async (id) => {
 
     try {
-        
+
         const usuario = await Usuario.findOne({ where: { id_usuario: id } });
 
         return usuario;

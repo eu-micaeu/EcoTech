@@ -46,3 +46,7 @@ header a:hover {
     color: #fff;
     cursor: pointer;
 }
+
+#btSair:hover {
+    color: #960000 !important;
+}

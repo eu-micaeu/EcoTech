@@ -35,20 +35,21 @@ h2 {
 .carrossel {
     width: 90vw;
     padding: 30px 0;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto);
     transition: transform 0.5s ease;
 }
 
 .carrossel .item {
 
     display: inline-block;
-    width: 400px;
+    width: 250px;
     background-color: #1a1a1a;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
-    margin: 30px;
+    margin: 10px;
     color: white;
 
 }

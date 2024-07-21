@@ -43,9 +43,9 @@ exports.registerItem = [
 
 exports.pegarItens = async () => {
     try {
-        // Encontre os primeiros 5 itens no banco de dados
+        // Encontre os primeiros 10 itens no banco de dados
         const itens = await Item.findAll({
-            limit: 5
+            limit: 10
         });
 
         return itens;

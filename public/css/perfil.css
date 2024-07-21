@@ -46,7 +46,7 @@
     background-color: #272727;
 }
 
-button {
+#botao-anunciar {
 
     padding: 15px;
     font-size: 20px;
@@ -56,9 +56,11 @@ button {
     width: 10%;
     margin: 25px auto;
     color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
-button:hover {
+#botao-anunciar:hover {
 
     background-color: #3cd84c ;
     

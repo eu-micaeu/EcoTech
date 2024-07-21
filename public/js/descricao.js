@@ -6,7 +6,9 @@ router.get('/', async (req, res) => {
 
     const item = await itemControllers.pegarItemPorId(req.query.id);
 
-    res.render('descricao', {item: item});
+    const estaLogado = req.session.usuario ? true : false;
+
+    res.render('descricao', {item: item, estaLogado: estaLogado});
     
 });
 

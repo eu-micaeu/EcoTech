@@ -4,7 +4,7 @@
     margin-top: 5rem;
     background-color: #1a1a1a;
     border-radius: 10px;
-    width: 40vw;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,18 +30,36 @@
     text-align: left;
     color: #12BD27;
     font-weight: bold;
-    margin: 5px 30px;
+    margin: 5px 20px;
     font-size: 20px;
 }
 
 .perfil .box input{
     color: #12BD27;
     font-weight: bold;
-    width: 10vw;
+    width: 15vw;
     height: 30px;
     border-radius: 5px;
     border: none;
     font-size: 18px;
     padding: 10px;
     background-color: #272727;
+}
+
+button {
+
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #12BD27 ;
+    border: none;
+    width: 10%;
+    margin: 25px auto;
+    color: white;
+}
+
+button:hover {
+
+    background-color: #3cd84c ;
+    
 }

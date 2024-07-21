@@ -36,12 +36,19 @@ exports.loginUsuario = async (req, res) => {
 
     try {
         console.log('Verificando se o usuário existe...');
+        
         const usuario = await Usuario.findOne({ where: { email_usuario, senha_usuario } });
 
         if (usuario) {
+
             console.log(`Usuário encontrado: ${usuario.email_usuario}`);
+
+            // Salvando no session storage
+
             req.session.usuario = usuario;
+
             res.redirect('/');
+
         } else {
             console.log('Usuário não encontrado');
             res.redirect('/entrar');
@@ -54,11 +61,17 @@ exports.loginUsuario = async (req, res) => {
 
 exports.logoutUsuario = async (req, res) => {
 
-    req.session.destroy()
+    req.session.destroy((err) => {
 
-    console.log('Sessão cancelada');
+        if (err) {
+            return res.status(500).send('Não foi possível sair.');
+        }
 
-    res.redirect('/entrar');
+        res.clearCookie('connect.sid'); 
+
+        res.redirect('/entrar'); 
+
+    });
 
 }
 

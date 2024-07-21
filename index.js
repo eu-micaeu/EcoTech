@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const mustacheExpress = require('mustache-express');
 
 const app = express();
 app.use(express.json());
@@ -9,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configurando Mustache
+const mustacheExpress = require('mustache-express');
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
@@ -18,11 +18,15 @@ const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
 //Sessão
-const session = require("express-session")
+const session = require('express-session');
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        secure: false
+    }
 }));
 
 // Rotas para as páginas
@@ -35,9 +39,7 @@ app.use('/sobre',require('./public/js/sobre'));
 app.use('/perfil',require('./public/js/perfil'));
 app.use('/departamento',require('./public/js/departamento'));
 
-
 // Rotas para as funções
-
 app.use('/itens', require('./routes/itemRoutes'));
 app.use('/usuario', require('./routes/usuarioRoutes'));
 

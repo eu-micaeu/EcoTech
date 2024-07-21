@@ -12,6 +12,10 @@ router.get("/", async (req, res) => {
         
         const estaLogado = req.session.usuario ? true : false;
 
+        console.log(req.session.usuario)
+
+        console.log(estaLogado)
+
         if (estaLogado) {
 
             res.render("home", {dataValuesArray, estaLogado: estaLogado});

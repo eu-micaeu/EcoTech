@@ -2,16 +2,16 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/entrar.css">
+    <link rel="stylesheet" href="css/anunciar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EcoTech</title>
     <link rel="icon" href="images/Logo.png" type="image/x-icon">
 </head>
 <body>
 
-    <header>
+     <header>
         
-        <img src="images/Logo.png" alt="Logo" width="150" height="150">
+        <a href="/"><img src="images/Logo.png" alt="Logo" width="150" height="150"></a>
 
         <nav>
             <ul>
@@ -34,52 +34,94 @@
 
     </header>
 
-     <form action="/itens/registerItem" method="POST" enctype="multipart/form-data">
+    <form id="anuncioForm" action="/itens/registerItem" method="POST" enctype="multipart/form-data">
 
         <h2>Novo Anúncio</h2>
 
         <label for="nome_item">Nome: </label>
         <input id="nome_item" name="nome_item" type="text">
 
-        <label for="imagem_item">Imagem do Item:</label>
-        <input type="file" id="imagem_item" name="imagem_item" ><br>
-
         <label for="descricao_item">Descrição: </label>
         <textarea id="descricao_item" name="descricao_item" rows="4" cols="50"></textarea>
 
-        <label for="preco_item">Preço: </label>
-        <input id="preco_item" name="preco_item" type="text">
+        <label for="preco_item">Preço (R$): </label>
+        <input id="preco_item" name="preco_item" type="number" step="0.01" min="0" placeholder="0.00">
 
         <label for="estado_item">Estado:</label>
-        <input id="estado_item" name="estado_item" type="text">
+        <select id="estado_item" name="estado_item">
+        <option value="Novo">Novo</option>
+        <option value="Usado">Usado</option>
+        </select>
+
+        <label for="imagem_item">Imagem do Item:</label>
+        <label class="customizar-file">
+        <input type="file" id="imagem_item" name="imagem_item" accept="image/*">
+            <span id="file-nome">Selecionar Imagem</span>
+        </label>
+        <img id="preview" src="default-image.png" alt="Prévia da imagem">
+
+        <label for="id_departamento">Departamento: </label>
+        <select id="id_departamento" name="id_departamento">
+        <option value="1">Monitores</option>
+        <option value="2">Fontes</option>
+        <option value="3">Processadores</option>
+        <option value="4">Placas de vídeo</option>
+        <option value="5">Memória RAM</option>
+        </select>
 
         <button type="submit">Enviar anúncio</button>
     
     </form>
 
-     <% if (typeof alertMessage !== 'undefined' && alertMessage !== '') { %>
-        
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-        
-            <%= alertMessage %>
-        
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        
-                <span aria-hidden="true">&times;</span>
-        
-            </button>
-        
-        </div>
-    
-    <% } %>
-    
-    
+    <div id="confirmacaoModal" class="modal">
 
-    <footer>
-        
-        <p> Todos os direitos reservados </p>
+        <h3> Seu anúncio foi submetido </h3>
 
-    </footer>
+        <p>Acompanhe pelo e-mail a confirmação do anúncio no site</p>
+
+    </div>
+
+    <script>
+
+        document.getElementById('anuncioForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            
+            document.getElementById('confirmacaoModal').style.display = 'block';
+
+            document.getElementById('anuncioForm').submit();
+
+            setTimeout(function() {
+                document.getElementById('confirmacaoModal').style.display = 'none';
+                window.location.href = '/'; 
+            }, 10000);
+
+        });
+        document.getElementById('imagem_item').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const fileNome = document.getElementById('file-nome');
+
+            // Se existe arquivo selecionado
+            if (file) {
+                fileNome.textContent = file.name;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                fileNome.textContent = 'Selecionar Imagem';
+            }
+        });
+
+        function resetImage() {
+            const preview = document.getElementById('preview');
+            preview.src = 'default-image.png';
+            document.getElementById('file-name').textContent = 'Selecionar Imagem';
+        }
+    </script>
+
 
 </body>
 

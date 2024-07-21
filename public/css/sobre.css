@@ -37,12 +37,6 @@ h2 {
     font-size: 20px;
 }
 
-.sobre-texto{
-
-    
-
-}
-
 .topico{
 
     display: flex;
@@ -74,7 +68,7 @@ h2 {
 
 }
 
-.topico h2,p{
+.topico h2{
 
     text-align: center;
 }

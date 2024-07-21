@@ -9,7 +9,7 @@ exports.registerItem = [
 
     async (req, res) => {
 
-        const { nome_item, descricao_item, preco_item, estado_item } = req.body;
+        const { nome_item, descricao_item, preco_item, estado_item, id_departamento} = req.body;
         const file = req.file;
 
         if (!file) {
@@ -26,7 +26,8 @@ exports.registerItem = [
                 imagem_item: base64Image,
                 descricao_item,
                 preco_item,
-                estado_item
+                estado_item,
+                id_departamento
             });
 
             console.log(item);

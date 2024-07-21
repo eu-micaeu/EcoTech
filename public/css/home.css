@@ -44,12 +44,12 @@ h2 {
 .carrossel .item {
 
     display: inline-block;
-    width: 250px;
+    width: 275px;
     background-color: #1a1a1a;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     color: white;
 
 }

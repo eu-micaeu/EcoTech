@@ -9,6 +9,8 @@
     color: white;
     margin: 10vh 0 5vh 0;
     width: 750px;
+    background-color: #1a1a1a;
+    padding: 30px;
 
 }
 
@@ -48,11 +50,19 @@
     margin-left: 40px;
     padding: 0 10px;
 
+
+}
+.item #informacoesDoItem #precoavista{
+    color: #12BD27;
+    font-size: 20px;
+    margin-left: 40px;
+    padding: 0 10px;
+
 }
 
 .item #informacoesDoItem #precoItem {
 
-    width: 200px;
+    width: 400px;
     font-size: 26px;
     margin-left: 40px;
     padding: 0 10px;
@@ -60,9 +70,9 @@
 
 }
 
-.item #informacoesDoItem #botaoComprar{
+#botaoComprar{
 
-    margin: 10px 0 0 40px;
+    margin: 10px auto;
     font-family: 'Kanit', sans-serif;
     font-size: 25px;
     height: 50px;
@@ -74,7 +84,7 @@
 
 }
 
-.item #informacoesDoItem #botaoComprar:hover{
+#botaoComprar:hover{
 
     background-color: #12BD27;
     color: white;
@@ -91,30 +101,28 @@ hr {
 
 }
 
-.descricao {
+h2{
 
-    width: 750px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     color: white;
-    margin-top: 5vh;
+    margin-top: 30px;
+}
+
+
+.resumo{
+
+    text-align: center;
 
 }
 
-.descricao h2{
 
-    margin: 0;
-    width: 750px;
-    text-align: left;
-    color: #12BD27;
-
-}
-
-.descricao #descricaoItem {
-
-    font-size: 18px;
+.resumo p{
     color: white;
+    font-size: 30px;
     
+
 }
+
+.resumo .subtotal{
+    font-size: 20px;
+}
+

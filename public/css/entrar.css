@@ -14,7 +14,7 @@ form{
     border-radius: 10px;
     background-color: #1a1a1a;
     margin-bottom: 10px;
-    padding: 60px 10px;
+    padding: 30px;
 
 }
 
@@ -30,7 +30,7 @@ form a:hover{
     color: #8ae492;
 }
 
-h1, h2{
+h1, h2, h3, p{
     color: #12BD27;
     margin: auto;
     margin-bottom: 10px;
@@ -76,5 +76,21 @@ form button:hover {
 
     background-color: #3cd84c ;
     
+}
+
+#google-login-btn{
+    
+    margin: 0 auto;
+    border-radius: 5px;
+    transition: ease 0.5s; 
+
+}
+
+#google-login-btn:hover{
+
+    cursor: pointer;
+    border-radius: 5px;
+    transform: scale(1.3);
+
 }
 

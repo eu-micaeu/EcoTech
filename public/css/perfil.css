@@ -8,12 +8,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 50px;
     padding: 50px;
 }
 
 .perfil h2{
-    color: white;
+    color: #12BD27;
     display: flex;
     justify-content: center;
 }
@@ -48,7 +48,7 @@
 
 #botao-anunciar {
 
-    
+    font-family: 'Kanit', sans-serif;
     padding: 15px;
     font-size: 20px;
     border-radius: 10px;
@@ -56,14 +56,37 @@
     color: #12BD27;
     border: 2px solid #12BD27;
     width: 10%;
-    margin: 25px auto;
+    margin: 0 auto;
     text-align: center;
     text-decoration: none;
 }
+
 
 #botao-anunciar:hover {
 
     color: white;
     background-color: #3cd84c ;
+    
+}
+
+#botaoDeletarConta {
+
+    font-family: 'Kanit', sans-serif;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: transparent ;
+    color: #3b0000;
+    border: none;
+    margin: 40px auto;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+#botaoDeletarConta:hover {
+
+    color: #ff0000;
+    cursor: pointer;
     
 }

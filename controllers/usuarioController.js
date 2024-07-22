@@ -4,31 +4,58 @@ require('dotenv').config();
 // Token
 const jwt = require('jsonwebtoken');
 
-exports.registerUsuario = async (req, res) => {
+// Normal
 
+// Função para registrar usuário
+exports.registerUsuario = async (req, res) => {
     const { nome_usuario, email_usuario, cpf_usuario, telefone_usuario, senha_usuario } = req.body;
 
-    console.log(req.body);
-
     try {
+        console.log('Buscando usuário existente...');
+        const usuarioExistente = await Usuario.findOne({ where: { email_usuario } });
 
-        const usuario = await Usuario.create({
-            nome_usuario,
-            email_usuario,
-            cpf_usuario,
-            telefone_usuario,
-            senha_usuario
-        });
+        if (usuarioExistente) {
 
-        console.log(usuario);
+            // Gerar token
+            const token = jwt.sign({ 
 
-        res.redirect('/registrar');
+                id_usuario: usuarioExistente.id_usuario, 
+                nome_usuario: usuarioExistente.nome_usuario, 
+                email_usuario: usuarioExistente.email_usuario,
+                cpf_usuario: usuarioExistente.cpf_usuario,
+                telefone_usuario: usuarioExistente.telefone_usuario
+            
+            }, process.env.SECRET_KEY, {
+                expiresIn: '1h'
+            });
 
+            res.cookie('jwt', token);
+
+            res.json({ message: 'Usuário já existe!' });
+
+        } else {
+            console.log('Registrando usuário...');
+
+            const usuario = await Usuario.create({
+                nome_usuario,
+                email_usuario,
+                cpf_usuario,
+                telefone_usuario,
+                senha_usuario
+            });
+
+            console.log('Usuário registrado com sucesso!');
+            console.log(usuario);
+
+            console.log('Redirecionando para /');
+            res.redirect('/');
+        }
     } catch (error) {
         console.error('Erro ao registrar usuário:', error);
         res.status(500).json({ error: error.message });
     }
 };
+
 
 // Função para logar usuário
 exports.loginUsuario = async (req, res) => {
@@ -64,23 +91,26 @@ exports.loginUsuario = async (req, res) => {
             res.redirect('/');
 
         } else {
-            console.log('Usuário não encontrado');
-            res.redirect('/entrar');
+
+            res.status(500);
+
         }
 
     } catch (error) {
+
         console.error('Erro ao verificar usuário:', error);
         res.status(500).send("Erro no servidor");
+        
     }
 };
 
-
+// Função para deslogar usuário
 exports.logoutUsuario = async (req, res) => {
 
     res.clearCookie('jwt');
     res.redirect('/entrar');
 
-}
+};
 
 // Função para resgatar informações do usuário
 exports.pegarUsuarioAtravesDoToken = async (token) => {
@@ -95,6 +125,6 @@ exports.pegarUsuarioAtravesDoToken = async (token) => {
             console.error('Erro ao pegar usuário:', error);
         }
     
-    }
+};
 
-
+module.exports = exports;

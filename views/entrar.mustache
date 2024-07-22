@@ -10,13 +10,10 @@
 <body>
 
     <header>
-        
         <img src="images/Logo.png" alt="Logo" width="150" height="150">
-
         <nav>
             <ul>
                 <li><a href="/sobre">QUEM SOMOS</a></li>
-
                 {{#estaLogado}}
                 <li style="color: #12BD27; font-size: 20px;">
                     <a href="/perfil">PERFIL</a> / 
@@ -25,34 +22,28 @@
                     </form>
                 </li>
                 {{/estaLogado}}
-
                 {{^estaLogado}}
                 <li><a href="/">HOME</a></li>
                 {{/estaLogado}}
             </ul>
         </nav>
-
     </header>
 
-    <form action="/usuario/loginUsuario"  method="post">
-
+    <form action="/usuario/loginUsuario" method="post">
         <h2>Entrar</h2>
-
         <label for="email_usuario">Email:</label>
         <input id="email_usuario" name="email_usuario" type="text">
-
         <label for="senha_usuario">Senha:</label>
         <input id="senha_usuario" name="senha_usuario" type="password">
-
         <a href="/registrar"> Não possui uma conta? Cadastre-se</a>
-
-
         <button type="submit">Entrar</button>
-    
+        <p>Ou pelo:</p>
+        <img src="images/google.png" alt="Logo" width="50" height="50" id="google-login-btn">
     </form>
 
     <h1>Encontre um lugar melhor para o seu hardware.</h1>
 
-</body>
+    <script src="../js/entrar.js" defer type="module"></script>
 
+</body>
 </html>

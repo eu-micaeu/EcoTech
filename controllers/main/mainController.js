@@ -215,18 +215,49 @@ router.get('/descricao', async (req, res) => {
 
 });
 
+router.get('/comprar', async (req, res) => {
+
+    const item = await itemControllers.pegarItemPorId(req.query.id);
+
+    let estaLogado = false;
+
+        if (req.cookies.jwt) {
+
+            try {
+
+                jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
+
+                estaLogado = true;
+
+                res.render("comprar", { item: item, estaLogado });
+
+            } catch (err) {
+
+                if (err.name === 'TokenExpiredError') {
+
+                    console.log('Token expirado, renderizando a página sem estado de login.');
+
+                } else {
+
+                    console.error('Erro ao verificar o token:', err);
+
+                }
+
+            }
+
+        }else{
+
+            res.redirect("/entrar");
+
+        }
+
+});
+
 // Página para saber mais sobre o site
 router.get("/sobre", async (req, res) => {
 
     res.render("sobre");
 
 });
-
-router.get("/comprar", async (req, res) => {
-
-    res.render("comprar");
-
-});
-
 
 module.exports = router;

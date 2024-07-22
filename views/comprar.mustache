@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/descricao.css">
+    <link rel="stylesheet" href="css/comprar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EcoTech</title>
     <link rel="icon" href="images/Logo.png" type="image/x-icon">
@@ -35,19 +35,32 @@
 
     </header>
 
+   
+
     {{#item}}
 
     <div class="item">
-        <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item" width=300 height=300>
+        <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item" width=200 height=200>
         <div id=informacoesDoItem>
             <p id="nomeItem">{{nome_item}}</p>
             <p id="estadoItem">Condição: {{estado_item}} </p>
+            <p id="precoavista">Preço à vista </p>
             <p id=precoItem>R${{preco_item}}</p>
-            <button id="botaoComprar" type="button" onclick="window.location.href='/compra'">COMPRAR</button>
+
         </div>
     </div>
-    
+
+    <h2>Resumo da compra</h2>
+
     <hr>
+
+    
+    <div class="resumo">
+        <p class="subtotal">SUBTOTAL : R${{preco_item}}</p>
+        <p>TOTAL : R${{preco_item}}</p>
+        <button type="button" onclick="window.location.href='comprar?id={{id_item}}'" id="botaoComprar">Finalizar compra</button>
+
+    </div>
 
     {{/item}}
 

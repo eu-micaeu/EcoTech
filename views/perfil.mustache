@@ -34,6 +34,8 @@
 
     {{#usuario}}
 
+    <a href="/anunciar" id="botao-anunciar">Anunciar produto</a>
+
     <div class="perfil">
 
         <h2>Dados pessoais</h2>
@@ -61,15 +63,62 @@
 
     </div>
 
-    {{/usuario}}
+    <div class="enderecos">
 
-    <a href="/anunciar" id="botao-anunciar">Anunciar</a>
+        {{#enderecos}}
+
+        <div class="endereco">
+
+            <h2>Endereço</h2>
+
+            <div class="box">
+
+                <label>CEP:</label>
+                <input type="text" value="{{cep_endereco}}" disabled>
+
+            </div>
+
+            <div class="box">
+
+                <label>Logradouro:</label>
+                <input type="text" value="{{logradouro_endereco}}" disabled>
+
+            </div>
+
+            <div class="box">
+
+                <label>Número:</label>
+                <input type="text" value="{{numero_endereco}}" disabled>
+
+            </div>
+
+            <div class="box">
+
+                <label>Complemento:</label>
+                <input type="text" value="{{complemento_endereco}}" disabled>
+
+            </div>
+
+            <div class="box">
+
+                <label>Bairro:</label>
+                <input type="text" value="{{bairro_endereco}}" disabled>
+
+            </div>
+
+        {{/enderecos}}
+
+        </div>
+
+    </div>
 
     <form action="/usuario/deletarUsuario" method="delete">
 
         <button type="submit" id="botaoDeletarConta"> DELETAR CONTA </button>
     
     </form>
+
+    {{/usuario}}
 
     <footer>
 

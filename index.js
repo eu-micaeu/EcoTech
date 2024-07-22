@@ -31,6 +31,7 @@ app.use('/', require('./controllers/main/mainController'));
 // Rotas para as funções
 app.use('/itens', require('./routes/itemRoutes'));
 app.use('/usuario', require('./routes/usuarioRoutes'));
+app.use('/endereco', require('./routes/enderecoRoutes'));
 
 app.listen(process.env.PORT, () => {
     console.log('Servidor rodando na porta:', process.env.PORT);

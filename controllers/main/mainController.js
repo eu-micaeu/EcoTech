@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const itemControllers = require('../itemController');
 const usuarioControllers = require('../usuarioController');
+const enderecoControllers = require('../enderecoController');
 
 const router = express.Router();
 
@@ -139,8 +140,11 @@ router.get("/perfil", async (req, res) => {
         if (jwt.verify(req.cookies.jwt, process.env.SECRET_KEY)) {
         
             const usuario = await usuarioControllers.pegarUsuarioAtravesDoToken(req.cookies.jwt);
+
+            // Pegando endereços do usuário
+            const enderecos = await enderecoControllers.pegarEnderecosDeUmUsuario(req.cookies.jwt);
         
-            res.render("perfil", {estaLogado: true, usuario: usuario});
+            res.render("perfil", {estaLogado: true, usuario: usuario, enderecos: enderecos});
         
         }else{
         

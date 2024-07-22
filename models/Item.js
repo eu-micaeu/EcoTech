@@ -35,6 +35,10 @@ Item.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+    id_usuario: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
 }, {
 
     sequelize,

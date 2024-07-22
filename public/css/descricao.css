@@ -12,6 +12,12 @@
 
 }
 
+.item img{
+
+    border-radius: 10px;
+    
+}
+
 .item #informacoesDoItem{
 
     height: 200px;

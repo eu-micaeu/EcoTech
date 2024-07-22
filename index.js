@@ -22,11 +22,7 @@ const session = require('express-session');
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        secure: false
-    }
+    saveUninitialized: false
 }));
 
 // Rota para as páginas
@@ -37,5 +33,5 @@ app.use('/itens', require('./routes/itemRoutes'));
 app.use('/usuario', require('./routes/usuarioRoutes'));
 
 app.listen(process.env.PORT, () => {
-    console.log('Server is running on http://localhost:3000');
+    console.log('Servidor rodando na porta:', process.env.PORT);
 });

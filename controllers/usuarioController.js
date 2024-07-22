@@ -1,4 +1,8 @@
 const Usuario = require('../models/Usuario');
+require('dotenv').config();
+
+// Token
+const jwt = require('jsonwebtoken');
 
 exports.registerUsuario = async (req, res) => {
 
@@ -26,8 +30,9 @@ exports.registerUsuario = async (req, res) => {
     }
 };
 
-
+// Função para logar usuário
 exports.loginUsuario = async (req, res) => {
+
     const { email_usuario, senha_usuario } = req.body;
 
     if (!email_usuario || !senha_usuario) {
@@ -41,11 +46,20 @@ exports.loginUsuario = async (req, res) => {
 
         if (usuario) {
 
-            console.log(`Usuário encontrado: ${usuario.email_usuario}`);
+            // Gerar token
+            const token = jwt.sign({ 
 
-            // Salvando no session storage
+                id_usuario: usuario.id_usuario, 
+                nome_usuario: usuario.nome_usuario, 
+                email_usuario: usuario.email_usuario,
+                cpf_usuario: usuario.cpf_usuario,
+                telefone_usuario: usuario.telefone_usuario
+            
+            }, process.env.SECRET_KEY, {
+                expiresIn: '1h'
+            });
 
-            req.session.usuario = usuario;
+            res.cookie('jwt', token);
 
             res.redirect('/');
 
@@ -53,11 +67,13 @@ exports.loginUsuario = async (req, res) => {
             console.log('Usuário não encontrado');
             res.redirect('/entrar');
         }
+
     } catch (error) {
         console.error('Erro ao verificar usuário:', error);
         res.status(500).send("Erro no servidor");
     }
 };
+
 
 exports.logoutUsuario = async (req, res) => {
 
@@ -76,16 +92,18 @@ exports.logoutUsuario = async (req, res) => {
 }
 
 // Função para resgatar informações do usuário
-exports.pegarUsuario = async (id) => {
-
-    try {
-
-        const usuario = await Usuario.findOne({ where: { id_usuario: id } });
-
-        return usuario;
-
-    } catch (error) {
-        console.error('Erro ao pegar usuário:', error);
-        res.status(500).json({ error: error.message });
+exports.pegarUsuarioAtravesDoToken = async (token) => {
+    
+        try {
+    
+            const usuario = jwt.verify(token, process.env.SECRET_KEY);
+    
+            return usuario;
+    
+        } catch (error) {
+            console.error('Erro ao pegar usuário:', error);
+        }
+    
     }
-};
+
+

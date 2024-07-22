@@ -1,6 +1,8 @@
 const multer = require('multer');
 const Item = require('../models/Item');
 
+const usuarioControllers = require('./usuarioController');
+
 const upload = multer({ storage: multer.memoryStorage() });
 
 exports.registerItem = [
@@ -9,7 +11,8 @@ exports.registerItem = [
 
     async (req, res) => {
 
-        const { nome_item, descricao_item, preco_item, estado_item, id_departamento} = req.body;
+        const {nome_item, descricao_item, preco_item, estado_item, id_departamento} = req.body;
+
         const file = req.file;
 
         if (!file) {
@@ -17,6 +20,10 @@ exports.registerItem = [
         }
 
         try {
+
+            // Pegando o id do usuário logado
+            const usuario = await usuarioControllers.pegarUsuarioAtravesDoToken(req.cookies.jwt);
+
             // Converte a imagem para Base64
             const base64Image = file.buffer.toString('base64');
 
@@ -27,7 +34,8 @@ exports.registerItem = [
                 descricao_item,
                 preco_item,
                 estado_item,
-                id_departamento
+                id_departamento,
+                id_usuario: usuario.id_usuario
             });
 
             console.log(item);

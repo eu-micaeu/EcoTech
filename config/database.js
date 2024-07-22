@@ -11,6 +11,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: 'postgres',
+    logging: false,
     dialectOptions: {
       ssl: {
         require: true, // Requer SSL
@@ -19,17 +20,5 @@ const sequelize = new Sequelize(
     },
   }
 );
-
-// Função para autenticar e verificar a conexão
-async function authenticateDB() {
-  try {
-    await sequelize.authenticate();
-    console.log('Conexão com o banco de dados estabelecida com sucesso!');
-  } catch (error) {
-    console.error('Erro ao conectar com o banco de dados:', error);
-  }
-}
-
-authenticateDB();
 
 module.exports = sequelize;

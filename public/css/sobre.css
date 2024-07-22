@@ -11,7 +11,7 @@ h2 {
 
 }
 
-.sobre{
+.sobre_nos{
     margin-top: 5rem;
     background-color: #1a1a1a;
     border-radius: 10px;
@@ -24,13 +24,13 @@ h2 {
     
 }
 
-.sobre h2{
+.sobre_nos h2{
 
     display: flex;
     justify-content: center;
 }
 
-.sobre p{
+.sobre_nos p{
 
     color: white;
     margin: 5px 30px;
@@ -53,7 +53,7 @@ h2 {
 
 .topico1{
     flex: 1;
-    height: 30vh;
+    height: 33vh;
     background-color: #1a1a1a;
     border-radius: 10px;
     padding: 20px;

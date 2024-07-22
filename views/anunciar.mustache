@@ -19,15 +19,15 @@
 
                 {{#estaLogado}}
                 <li style="color: #12BD27; font-size: 20px;">
-                    <a href="/perfil">PERFIL</a> / 
+                    <a href="/">HOME</a> / 
                     <form action="/usuario/logoutUsuario" method="POST" style="display:inline;">
-                        <button type="submit" style="color: red; font-size: 20px; background: none; border: none; cursor: pointer;">SAIR</button>
+                        <button type="submit" id="btSair" style="color: red; font-size: 20px; background: none; border: none; cursor: pointer;">SAIR</button>
                     </form>
                 </li>
                 {{/estaLogado}}
 
                 {{^estaLogado}}
-                <li><a href="/entrar">ENTRAR</a></li>
+
                 {{/estaLogado}}
             </ul>
         </nav>
@@ -73,7 +73,7 @@
             <option value="5">Memória RAM</option>
         </select>
 
-        <button type="submit">Enviar anúncio</button>
+        <button class="botao-anunciar" type="submit">Enviar anúncio</button>
     
     </form>
 

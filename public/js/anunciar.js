@@ -7,8 +7,11 @@ document.getElementById('anuncioForm').addEventListener('submit', function(event
     document.getElementById('anuncioForm').submit();
 
     setTimeout(function() {
+
         document.getElementById('confirmacaoModal').style.display = 'none';
+
         window.location.href = '/'; 
+
     }, 10000);
 
 });
@@ -26,9 +29,11 @@ document.getElementById('imagem_item').addEventListener('change', function(event
         const reader = new FileReader();
 
         reader.onload = function(e) {
+
             const preview = document.getElementById('preview');
             preview.src = e.target.result;
             preview.style.display = 'block';
+
         };
 
         reader.readAsDataURL(file);
@@ -42,7 +47,9 @@ document.getElementById('imagem_item').addEventListener('change', function(event
 });
 
 function resetImage() {
+
     const preview = document.getElementById('preview');
     preview.src = 'default-image.png';
     document.getElementById('file-name').textContent = 'Selecionar Imagem';
+    
 }

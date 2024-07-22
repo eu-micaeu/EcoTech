@@ -34,23 +34,21 @@ h2 {
 
 .carrossel {
     width: 90vw;
-    padding: 30px 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, auto);
     transition: transform 0.5s ease;
 }
 
 .carrossel .item {
 
     display: inline-block;
-    width: 275px;
     background-color: #1a1a1a;
-    border-radius: 10px;
     text-align: center;
     padding: 10px;
-    margin: 5px;
     color: white;
+    margin: 40px;
+    border-radius: 5px;
+    transition: ease 0.5s;
 
 }
 
@@ -58,11 +56,10 @@ h2 {
 
     border-radius: 10px;
     margin: 10px;
-    transition: ease 0.5s;
 
 }
 
-.carrossel .item img:hover {
+.carrossel .item:hover {
 
     cursor: pointer;
     transform: scale(1.1);

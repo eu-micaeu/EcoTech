@@ -222,4 +222,11 @@ router.get("/sobre", async (req, res) => {
 
 });
 
+router.get("/comprar", async (req, res) => {
+
+    res.render("comprar");
+
+});
+
+
 module.exports = router;

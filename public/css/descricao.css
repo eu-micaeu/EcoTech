@@ -7,7 +7,7 @@
     justify-content: space-around;
     align-items: center;
     color: white;
-    margin: 10vh 0;
+    margin: 10vh 0 5vh 0;
     width: 750px;
 
 }
@@ -21,7 +21,10 @@
 .item #informacoesDoItem{
 
     height: 200px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
 
 .item p{
@@ -30,29 +33,51 @@
 
 }
 
-.item #nomeItem {
+.item #informacoesDoItem #nomeItem {
 
     font-size: 24px;
     margin-left: 40px;
-    padding: 10px;
+    padding: 0 10px;
     border-bottom: 1px solid #12BD27;
 
 }
 
-.item #estadoItem {
+.item #informacoesDoItem #estadoItem {
 
     font-size: 18px;
     margin-left: 40px;
-    padding: 10px;
+    padding: 0 10px;
 
 }
 
-.item #precoItem {
+.item #informacoesDoItem #precoItem {
 
+    width: 200px;
     font-size: 26px;
     margin-left: 40px;
-    padding: 10px;
+    padding: 0 10px;
     font-weight: bold;
+
+}
+
+#botaoComprar{
+
+    margin: 0 0 0 40px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 25px;
+    height: 50px;
+    background-color: transparent;
+    color: #12BD27;
+    border: 2px solid #12BD27;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+#botaoComprar:hover{
+
+    background-color: #12BD27;
+    color: white;
 
 }
 
@@ -74,7 +99,7 @@ hr {
     justify-content: space-around;
     align-items: center;
     color: white;
-    margin-top: 10vh;
+    margin-top: 5vh;
 
 }
 

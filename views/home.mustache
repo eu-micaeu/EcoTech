@@ -15,13 +15,11 @@
 
         <nav>
             <ul>
-                <li><a href="/sobre">QUEM SOMOS</a></li>
-
                 {{#estaLogado}}
                 <li style="color: #12BD27; font-size: 20px;">
-                    <a href="/perfil">PERFIL</a> / 
+                    <a href="/perfil">PERFIL</a> |
                     <form action="/usuario/logoutUsuario" method="POST" style="display:inline;">
-                        <button type="submit" style="color: red; font-size: 20px; background: none; border: none; cursor: pointer;">SAIR</button>
+                        <button type="submit" id="btSair">SAIR</button>
                     </form>
                 </li>
                 {{/estaLogado}}
@@ -115,6 +113,7 @@
         <div class="sobre">
             <img src="images/Logo.png" alt="Logo" width="70" height="70">
             <p>&copy; 2024 EcoTech. Todos os direitos reservados.</p>
+            <a href="/sobre" target="_blank">QUEM SOMOS</a>
         </div>
 
         <div class="redes-sociais">

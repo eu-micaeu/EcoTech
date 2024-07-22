@@ -47,6 +47,15 @@ header a:hover {
     cursor: pointer;
 }
 
-#btSair:hover {
-    color: #960000 !important;
+header nav ul li form #btSair {
+    color: #ff0000;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+header nav ul li form #btSair:hover {
+    color: #960000;
+    cursor: pointer;
 }

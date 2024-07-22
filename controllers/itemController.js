@@ -5,6 +5,7 @@ const usuarioControllers = require('./usuarioController');
 
 const upload = multer({ storage: multer.memoryStorage() });
 
+// Função para registrar um item
 exports.registerItem = [
     
     upload.single('imagem_item'),
@@ -49,6 +50,7 @@ exports.registerItem = [
     }
 ];
 
+// Função para pegar 10 itens para a página inicial
 exports.pegarItens = async () => {
     try {
         // Encontre os primeiros 10 itens no banco de dados
@@ -63,17 +65,21 @@ exports.pegarItens = async () => {
     }
 };
 
+// Função para pegar item por ID
 exports.pegarItemPorId = async (id) => {
+    
     try {
 
-        // Encontre o item com o ID fornecido
         const item = await Item.findByPk(id);
 
         return item;
 
     } catch (error) {
+
         throw new Error('Erro ao buscar item por ID: ' + error.message);
+
     }
+
 }
 
 // Função para pegar item por departamento

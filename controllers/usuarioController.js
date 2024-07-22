@@ -77,17 +77,8 @@ exports.loginUsuario = async (req, res) => {
 
 exports.logoutUsuario = async (req, res) => {
 
-    req.session.destroy((err) => {
-
-        if (err) {
-            return res.status(500).send('Não foi possível sair.');
-        }
-
-        res.clearCookie('connect.sid'); 
-
-        res.redirect('/entrar'); 
-
-    });
+    res.clearCookie('jwt');
+    res.redirect('/entrar');
 
 }
 

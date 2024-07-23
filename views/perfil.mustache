@@ -36,6 +36,8 @@
 
     <a href="/anunciar" id="botao-anunciar">Anunciar produto</a>
 
+    <a href="/anuncios" id="botao-anuncios">Meus anúncios</a>
+
     <div class="perfil">
 
         <h2>Dados pessoais</h2>
@@ -63,11 +65,13 @@
 
     </div>
 
-    <div class="enderecos">
 
+    <div class="enderecos">
+    
         {{#enderecos}}
 
         <div class="endereco">
+
 
             <h2>Endereço</h2>
 
@@ -106,6 +110,8 @@
 
             </div>
 
+            <button id="botao-adicionar-enderecos"> Adicionar Endereços </button>
+
         {{/enderecos}}
 
         </div>
@@ -119,6 +125,32 @@
     </form>
 
     {{/usuario}}
+
+    <div id="modal-endereco" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Escolha ou Adicione um Novo Endereço</h2>
+            <form id="form-endereco" action="/enderecos/adicionarEndereco" method="POST" >
+                <label for="cep-endereco">CEP:</label>
+                <input type="text" id="cep-endereco" name="cep-endereco" required>
+                
+                <label for="logradouro-endereco">Logradouro:</label>
+                <input type="text" id="logradouro-endereco" name="logradouro-endereco" required>
+                
+                <label for="numero-endereco">Número:</label>
+                <input type="text" id="numero-endereco" name="numero-endereco" required>
+
+                <label for="complemento-endereco">Complemento:</label>
+                <input type="text" id="complemento-endereco" name="complmento-endereco" required>
+                
+                <label for="bairro-endereco">Bairro:</label>
+                <input type="text" id="bairro-endereco" name="bairro-endereco" required>
+                
+                <button type="submit">Salvar Endereço</button>
+            </form>
+        </div>
+    </div>
+
 
     <footer>
 
@@ -144,6 +176,7 @@
 
     </footer>
 
+    <script src="../js/perfil.js"> </script>
 </body>
 
 </html>

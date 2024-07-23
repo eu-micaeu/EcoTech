@@ -20,5 +20,3 @@ exports.pegarEnderecosDeUmUsuario = async (token) => {
 
     }
 };
-
-module.exports = exports; 

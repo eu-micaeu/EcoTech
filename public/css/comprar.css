@@ -9,7 +9,7 @@
     color: white;
     margin: 10vh 0 5vh 0;
     width: 750px;
-    background-color: #1a1a1a;
+    background-color: transparent;
     border-radius: 5px;
     padding: 30px;
 
@@ -71,27 +71,6 @@
 
 }
 
-#botaoComprar{
-
-    margin: 10px auto;
-    font-family: 'Kanit', sans-serif;
-    font-size: 25px;
-    height: 50px;
-    background-color: transparent;
-    color: #12BD27;
-    border: 2px solid #12BD27;
-    border-radius: 10px;
-    cursor: pointer;
-
-}
-
-#botaoComprar:hover{
-
-    background-color: #12BD27;
-    color: white;
-
-}
-
 hr {
 
     width: 750px;
@@ -127,3 +106,62 @@ h2{
     font-size: 20px;
 }
 
+#metodosPagamento{
+
+    margin: 50px auto;
+    width: 300px;
+
+}
+
+#metodosPagamento .metodo{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+
+}
+
+#metodosPagamento .metodo:hover {
+
+    cursor: pointer;
+
+}
+
+#metodosPagamento .metodo p{
+    
+    color: #12BD27;
+    margin: 0px 10px;
+    font-size: 18px;
+
+}
+
+#botaoComprar{
+
+    margin: 10px auto;
+    font-family: 'Kanit', sans-serif;
+    font-size: 25px;
+    height: 50px;
+    background-color: transparent;
+    color: #12BD27;
+    border: 2px solid #12BD27;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+#botaoComprar:hover{
+
+    background-color: #12BD27;
+    color: white;
+
+}
+
+.selected {
+
+    border: 2px solid green !important; 
+
+}

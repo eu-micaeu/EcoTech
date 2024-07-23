@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const Buffer = require('buffer').Buffer;
 
 const itemControllers = require('../itemController');
 const usuarioControllers = require('../usuarioController');
@@ -41,7 +42,7 @@ router.get("/", async (req, res) => {
 
         }
 
-        res.render("home", { dataValuesArray, estaLogado});
+        res.render("home", { dataValuesArray, estaLogado });
 
     } catch (error) {
 
@@ -77,23 +78,23 @@ router.get("/departamento", async (req, res) => {
             if (req.query.id == 1) {
 
                 res.render("departamento", { itens: itens, departamento: "Monitores", estaLogado: true });
-    
+
             } else if (req.query.id == 2) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Fontes", estaLogado: true });
-    
+
             } else if (req.query.id == 3) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Processadores", estaLogado: true });
             }
-    
+
             else if (req.query.id == 4) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Placas de Video", estaLogado: true });
             }
-    
+
             else if (req.query.id == 5) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Memórias RAM", estaLogado: true });
             }
 
@@ -102,23 +103,23 @@ router.get("/departamento", async (req, res) => {
             if (req.query.id == 1) {
 
                 res.render("departamento", { itens: itens, departamento: "Monitores", estaLogado: false });
-    
+
             } else if (req.query.id == 2) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Fontes", estaLogado: false });
-    
+
             } else if (req.query.id == 3) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Processadores", estaLogado: false });
             }
-    
+
             else if (req.query.id == 4) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Placas de Video", estaLogado: false });
             }
-    
+
             else if (req.query.id == 5) {
-    
+
                 res.render("departamento", { itens: itens, departamento: "Memórias RAM", estaLogado: false });
             }
 
@@ -136,25 +137,25 @@ router.get("/departamento", async (req, res) => {
 router.get("/perfil", async (req, res) => {
 
     try {
-        
+
         if (jwt.verify(req.cookies.jwt, process.env.SECRET_KEY)) {
-        
+
             const usuario = await usuarioControllers.pegarUsuarioAtravesDoToken(req.cookies.jwt);
 
             // Pegando endereços do usuário
             const enderecos = await enderecoControllers.pegarEnderecosDeUmUsuario(req.cookies.jwt);
-        
-            res.render("perfil", {estaLogado: true, usuario: usuario, enderecos: enderecos});
-        
-        }else{
-        
+
+            res.render("perfil", { estaLogado: true, usuario: usuario, enderecos: enderecos });
+
+        } else {
+
             res.render("perfil");
-        
+
         }
 
     } catch (error) {
 
-        console.error('Erro:', error.stack); 
+        console.error('Erro:', error.stack);
 
     }
 
@@ -162,14 +163,14 @@ router.get("/perfil", async (req, res) => {
 
 // Página para anunciar algum item
 router.get("/anunciar", async (req, res) => {
-    
+
     try {
 
         if (jwt.verify(req.cookies.jwt, process.env.SECRET_KEY)) {
 
-            res.render("anunciar", {estaLogado: true});
+            res.render("anunciar", { estaLogado: true });
 
-        }else{
+        } else {
 
             res.render("anunciar");
 
@@ -178,7 +179,7 @@ router.get("/anunciar", async (req, res) => {
 
     } catch (error) {
 
-        console.error('Erro:', error.stack); 
+        console.error('Erro:', error.stack);
 
     }
 
@@ -191,31 +192,31 @@ router.get('/descricao', async (req, res) => {
 
     let estaLogado = false;
 
-        if (req.cookies.jwt) {
+    if (req.cookies.jwt) {
 
-            try {
+        try {
 
-                jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
+            jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
 
-                estaLogado = true;
+            estaLogado = true;
 
-            } catch (err) {
+        } catch (err) {
 
-                if (err.name === 'TokenExpiredError') {
+            if (err.name === 'TokenExpiredError') {
 
-                    console.log('Token expirado, renderizando a página sem estado de login.');
+                console.log('Token expirado, renderizando a página sem estado de login.');
 
-                } else {
+            } else {
 
-                    console.error('Erro ao verificar o token:', err);
-
-                }
+                console.error('Erro ao verificar o token:', err);
 
             }
 
         }
 
-        res.render("descricao", {item: item, estaLogado});
+    }
+
+    res.render("descricao", { item: item, estaLogado });
 
 });
 
@@ -225,37 +226,67 @@ router.get('/comprar', async (req, res) => {
 
     let estaLogado = false;
 
-        if (req.cookies.jwt) {
+    if (req.cookies.jwt) {
 
-            try {
+        try {
 
-                jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
+            jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
 
-                estaLogado = true;
+            estaLogado = true;
 
-                res.render("comprar", { item: item, estaLogado });
+            // Criando um cookie chamado valor com o item 
+            res.cookie('valor', item.preco_item)
 
-            } catch (err) {
+            res.render("comprar", { item: item, estaLogado });
 
-                if (err.name === 'TokenExpiredError') {
+        } catch (err) {
 
-                    console.log('Token expirado, renderizando a página sem estado de login.');
+            if (err.name === 'TokenExpiredError') {
 
-                } else {
+                console.log('Token expirado, renderizando a página sem estado de login.');
 
-                    console.error('Erro ao verificar o token:', err);
+            } else {
 
-                }
+                console.error('Erro ao verificar o token:', err);
 
             }
 
-        }else{
-
-            res.redirect("/entrar");
-
         }
 
+    } else {
+
+        res.redirect("/entrar");
+
+    }
+
 });
+
+router.get('/pix', async (req, res) => {
+    
+    let estaLogado = false;
+
+    if (req.cookies.jwt) {
+        try {
+            jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
+            estaLogado = true;
+            
+            res.render("pix", { estaLogado });
+
+        } catch (err) {
+            if (err.name === 'TokenExpiredError') {
+                console.log('Token expirado, renderizando a página sem estado de login.');
+                res.render("pix", { estaLogado });
+            } else {
+                console.error('Erro ao verificar o token:', err);
+                res.status(500).send('Erro interno do servidor');
+            }
+        }
+    } else {
+        res.redirect("/entrar");
+    }
+
+});
+
 
 // Página para saber mais sobre o site
 router.get("/sobre", async (req, res) => {

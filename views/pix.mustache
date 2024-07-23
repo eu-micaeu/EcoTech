@@ -35,45 +35,16 @@
 
     </header>
 
-    {{#item}}
+    {{#imgQrCode}}
 
-    <div class="item">
-        <img src="data:image/jpeg;base64,{{imagem_item}}" alt="Imagem do item" width=200 height=200>
-        <div id="informacoesDoItem">
-            <p id="nomeItem">{{nome_item}}</p>
-            <p id="estadoItem">Condição: {{estado_item}} </p>
-            <p id="precoavista">Preço à vista </p>
-            <p id=precoItem>R${{preco_item}}</p>
+        <h1>{{.}}</h1>
 
-        </div>
-    </div>
+        <img src="{{.}}" alt="QR Code PIX">
 
-    <h2>Resumo da compra</h2>
-
-    <hr>
-
-    <div class="resumo">
-        <p class="subtotal">SUBTOTAL : R${{preco_item}}</p>
-        <p>TOTAL : R${{preco_item}}</p>
-    </div>
-
-    <h2>Método de pagamento</h2>
-
-    <hr>
-
-    <div id="metodosPagamento">
-        <div class="metodo" data-metodo="pix"> 
-            <img src="images/pix.png" alt="PIX" width="27" height="27">
-            <p>PIX</p>
-        </div>
-        <!-- Adicione mais métodos de pagamento aqui se necessário -->
-    </div>
-
-    <button type="button" id="botaoComprar">Finalizar compra</button>
-
-    {{/item}}
+    {{/imgQrCode}}
 
     <footer>
+
         <div class="contato">
             <h3>Contato</h3>
             <p>Email: contato@ecotech.com</p>
@@ -92,9 +63,11 @@
             <a href="https://www.twitter.com/ecotech" target="_blank" style="margin: 0 10px;">Twitter</a>
             <a href="https://www.instagram.com/ecotech" target="_blank" style="margin: 0 10px;">Instagram</a>
         </div>
+
     </footer>
 
-    <script src="../js/comprar.js"></script>
+    <script src="../js/pix.js"></script>
 
 </body>
+
 </html>

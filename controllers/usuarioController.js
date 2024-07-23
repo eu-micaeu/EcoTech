@@ -126,5 +126,3 @@ exports.pegarUsuarioAtravesDoToken = async (token) => {
         }
     
 };
-
-module.exports = exports;

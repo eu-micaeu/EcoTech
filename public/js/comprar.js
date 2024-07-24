@@ -20,11 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    document.getElementById('botaoComprar').addEventListener('click', function () {
-        if (metodoSelecionado === 'pix') {
-            window.location.href = '/pix';
-        } else {
-            window.location.href = 'comprar?id={{id_item}}';
-        }
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemId = urlParams.get('id')
+    
 });

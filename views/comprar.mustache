@@ -57,19 +57,7 @@
         <p>TOTAL : R${{preco_item}}</p>
     </div>
 
-    <h2>Método de pagamento</h2>
-
-    <hr>
-
-    <div id="metodosPagamento">
-        <div class="metodo" data-metodo="pix"> 
-            <img src="images/pix.png" alt="PIX" width="27" height="27">
-            <p>PIX</p>
-        </div>
-        <!-- Adicione mais métodos de pagamento aqui se necessário -->
-    </div>
-
-    <button type="button" id="botaoComprar">Finalizar compra</button>
+    <button type="button" id="botaoComprar" onclick="window.location.href='{{linkDePagamento_item}}'">Seguir para o pagamento</button>
 
     {{/item}}
 

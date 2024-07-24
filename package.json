@@ -23,6 +23,7 @@
     "pg-hstore": "^2.3.4",
     "qrcode": "^1.5.3",
     "sequelize": "^6.6.5",
-    "simple-update-notifier": "^2.0.0"
+    "simple-update-notifier": "^2.0.0",
+    "stripe": "^16.4.0"
   }
 }

@@ -31,6 +31,12 @@ Item.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
+
+    linkDePagamento_item: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
     id_departamento: {
         type: DataTypes.INTEGER,
         allowNull: false,

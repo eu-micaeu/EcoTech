@@ -67,6 +67,14 @@
 
 
     <div class="enderecos">
+
+        <select id="escolher-endereco">
+            {{#enderecos}}
+            <option value="{{id_endereco}}" {{#selected}}selected="selected"{{/selected}}>
+                {{logradouro_endereco}}
+            </option>
+            {{/enderecos}}
+        </select>
     
         {{#enderecos}}
 
@@ -110,9 +118,11 @@
 
             </div>
 
-            <button id="botao-adicionar-enderecos"> Adicionar Endereços </button>
 
         {{/enderecos}}
+
+        <button id="botao-adicionar-enderecos"> Adicionar Endereços </button>
+
 
         </div>
 
@@ -127,26 +137,32 @@
     {{/usuario}}
 
     <div id="modal-endereco" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Escolha ou Adicione um Novo Endereço</h2>
-            <form id="form-endereco" action="/enderecos/adicionarEndereco" method="POST" >
-                <label for="cep-endereco">CEP:</label>
-                <input type="text" id="cep-endereco" name="cep-endereco" required>
-                
-                <label for="logradouro-endereco">Logradouro:</label>
-                <input type="text" id="logradouro-endereco" name="logradouro-endereco" required>
-                
-                <label for="numero-endereco">Número:</label>
-                <input type="text" id="numero-endereco" name="numero-endereco" required>
 
-                <label for="complemento-endereco">Complemento:</label>
-                <input type="text" id="complemento-endereco" name="complmento-endereco" required>
+        <div class="modal-content">
+        
+            <span class="close">&times;</span>
+        
+            <h2>Escolha ou Adicione um Novo Endereço</h2>
+        
+            <form id="form-endereco" action="/endereco/adicionarEndereco" method="POST" >
+
+                <label for="logradouro_endereco">Logradouro:</label>
+                <input type="text" id="logradouro_endereco" name="logradouro_endereco" required>
                 
-                <label for="bairro-endereco">Bairro:</label>
-                <input type="text" id="bairro-endereco" name="bairro-endereco" required>
+                <label for="numero_endereco">Número:</label>
+                <input type="integer" id="numero_endereco" name="numero_endereco" required>
+
+                <label for="cep_endereco">CEP:</label>
+                <input type="text" id="cep_endereco" name="cep_endereco" required>
+
+                <label for="complemento_endereco">Complemento:</label>
+                <input type="text" id="complemento_endereco" name="complemento_endereco" required>
+                
+                <label for="bairro_endereco">Bairro:</label>
+                <input type="text" id="bairro_endereco" name="bairro_endereco" required>
                 
                 <button type="submit">Salvar Endereço</button>
+
             </form>
         </div>
     </div>

@@ -1,6 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const Buffer = require('buffer').Buffer;
+
+// This is your test secret API key.
+const stripe = require("stripe")('sk_test_51PGG5jLryyDQprYrj9hRUqigq3isjrefoiVh4Hli1XwKKN2EwsNY0EKMOAeeXvdSnX8S6tWAwdvo2TLeQIkToDKx00p3TRK8lc');
 
 const itemControllers = require('../itemController');
 const usuarioControllers = require('../usuarioController');
@@ -161,6 +163,8 @@ router.get("/perfil", async (req, res) => {
 
 });
 
+
+
 // Página para anunciar algum item
 router.get("/anunciar", async (req, res) => {
 
@@ -260,33 +264,6 @@ router.get('/comprar', async (req, res) => {
     }
 
 });
-
-router.get('/pix', async (req, res) => {
-    
-    let estaLogado = false;
-
-    if (req.cookies.jwt) {
-        try {
-            jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
-            estaLogado = true;
-            
-            res.render("pix", { estaLogado });
-
-        } catch (err) {
-            if (err.name === 'TokenExpiredError') {
-                console.log('Token expirado, renderizando a página sem estado de login.');
-                res.render("pix", { estaLogado });
-            } else {
-                console.error('Erro ao verificar o token:', err);
-                res.status(500).send('Erro interno do servidor');
-            }
-        }
-    } else {
-        res.redirect("/entrar");
-    }
-
-});
-
 
 // Página para saber mais sobre o site
 router.get("/sobre", async (req, res) => {

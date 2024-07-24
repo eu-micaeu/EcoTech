@@ -29,7 +29,7 @@ app.use(session({
 app.use('/', require('./controllers/main/mainController'));
 
 // Rotas para as funções
-app.use('/itens', require('./routes/itemRoutes'));
+app.use('/item', require('./routes/itemRoutes'));
 app.use('/usuario', require('./routes/usuarioRoutes'));
 app.use('/endereco', require('./routes/enderecoRoutes'));
 

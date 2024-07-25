@@ -1,8 +1,6 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 
-// This is your test secret API key.
-const stripe = require("stripe")('sk_test_51PGG5jLryyDQprYrj9hRUqigq3isjrefoiVh4Hli1XwKKN2EwsNY0EKMOAeeXvdSnX8S6tWAwdvo2TLeQIkToDKx00p3TRK8lc');
+const jwt = require('jsonwebtoken');
 
 const itemControllers = require('../itemController');
 const usuarioControllers = require('../usuarioController');
@@ -16,7 +14,6 @@ router.get("/", async (req, res) => {
     try {
 
         const itens = await itemControllers.pegarItens();
-        const dataValuesArray = itens.map(item => item.dataValues);
 
         let estaLogado = false;
 
@@ -44,7 +41,7 @@ router.get("/", async (req, res) => {
 
         }
 
-        res.render("home", { dataValuesArray, estaLogado });
+        res.render("home", { itens, estaLogado });
 
     } catch (error) {
 
@@ -163,8 +160,6 @@ router.get("/perfil", async (req, res) => {
 
 });
 
-
-
 // Página para anunciar algum item
 router.get("/anunciar", async (req, res) => {
 
@@ -190,7 +185,7 @@ router.get("/anunciar", async (req, res) => {
 });
 
 // Página para ver a descricao de um item
-router.get('/descricao', async (req, res) => {
+router.get('/produto', async (req, res) => {
 
     const item = await itemControllers.pegarItemPorId(req.query.id);
 
@@ -220,7 +215,7 @@ router.get('/descricao', async (req, res) => {
 
     }
 
-    res.render("descricao", { item: item, estaLogado });
+    res.render("produto", { item: item, estaLogado });
 
 });
 

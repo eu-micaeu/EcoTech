@@ -40,17 +40,19 @@
     
     </div>
 
+    <!-- Exibe as informações dos departamentos -->
+
     <div class="carrossel">
 
-        {{#dataValuesArray}}
+        {{#itens}}
 
         <div class="item">
-            <img id="base64Image" src="data:image/png;base64,{{imagem_item}}" alt="Imagem em Base64" width="150" height="150" onclick="window.location.href='descricao?id={{id_item}}'">
+            <img id="base64Image" src="data:image/png;base64,{{imagem_item}}" alt="Imagem em Base64" width="150" height="150" onclick="window.location.href='produto?id={{id_item}}'">
             <p>{{nome_item}}</p>
             <p><strong>R${{preco_item}}</strong></p>
         </div>
 
-        {{/dataValuesArray}}
+        {{/itens}}
 
     </div>
 
@@ -61,6 +63,8 @@
         <h2>Departamentos</h2>
     
     </div>
+
+    <!-- Exibe as informações dos departamentos -->
 
     <div class="carrossel">
 
@@ -100,6 +104,8 @@
         </div>
 
     </div>
+
+    <!-- Rodapé da página -->
 
     <footer>
 

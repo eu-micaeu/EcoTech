@@ -1,8 +1,8 @@
 const Endereco = require('../models/Endereco');
-const Usuario = require('../models/Usuario');
 
 const usuarioControllers = require('./usuarioController');
 
+// Função para pegar os endereços de um usuário
 exports.pegarEnderecosDeUmUsuario = async (token) => {
 
     try {
@@ -25,6 +25,7 @@ exports.pegarEnderecosDeUmUsuario = async (token) => {
     }
 };
 
+// Função para adicionar um endereço
 exports.adicionarEndereco = async (req, res) => {
     const { logradouro_endereco, numero_endereco, cep_endereco, complemento_endereco, bairro_endereco } = req.body;
 

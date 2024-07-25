@@ -1,10 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');// Importa as classes Model e DataTypes do Sequelize
 
-const sequelize = require('../config/database');
+const sequelize = require('../config/database');//// Importa a instância do Sequelize configurada
 
-class Usuario extends Model { }
+class Usuario extends Model { } // Define a classe Usuario que extende a classe Model do Sequelize
 
-Usuario.init({
+Usuario.init({ // Inicializa a classe Usuario com os atributos abaixo
 
     id_usuario: {
         type: DataTypes.INTEGER,

@@ -17,6 +17,8 @@
             <ul>
                 <li><a href="/sobre">QUEM SOMOS</a></li>
 
+                <!-- Exibe se o usuário está logado -->
+
                 {{#estaLogado}}
                 <li style="color: #12BD27; font-size: 20px;">
                     <a href="/">HOME</a> / 
@@ -26,6 +28,8 @@
                 </li>
                 {{/estaLogado}}
 
+                <!-- Exibe se o usuário não está logado -->
+
                 {{^estaLogado}}
 
                 {{/estaLogado}}
@@ -34,6 +38,7 @@
 
     </header>
 
+    <!-- Formulário para criar um novo anúncio -->
     <form id="anuncioForm" action="/itens/registerItem" method="POST" enctype="multipart/form-data">
 
         <h2>Novo Anúncio</h2>
@@ -77,13 +82,17 @@
     
     </form>
 
+    <!-- Modal de confirmação -->
+
     <div id="confirmacaoModal" class="modal">
 
-        <h3> Seu anúncio foi submetido </h3>
+        <h3>Seu anúncio foi submetido </h3>
 
         <p>Acompanhe pelo e-mail a confirmação do anúncio no site</p>
 
     </div>
+
+     <!-- Rodapé da página -->
 
     <footer>
 

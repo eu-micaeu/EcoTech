@@ -1,10 +1,8 @@
 const Usuario = require('../models/Usuario');
+
 require('dotenv').config();
 
-// Token
 const jwt = require('jsonwebtoken');
-
-// Normal
 
 // Função para registrar usuário
 exports.registerUsuario = async (req, res) => {
@@ -12,6 +10,7 @@ exports.registerUsuario = async (req, res) => {
 
     try {
         console.log('Buscando usuário existente...');
+
         const usuarioExistente = await Usuario.findOne({ where: { email_usuario } });
 
         if (usuarioExistente) {
@@ -31,9 +30,10 @@ exports.registerUsuario = async (req, res) => {
 
             res.cookie('jwt', token);
 
-            res.json({ message: 'Usuário já existe!' });
+            res.json({ message: 'Usuário já existe!' }); 
 
         } else {
+
             console.log('Registrando usuário...');
 
             const usuario = await Usuario.create({
@@ -44,18 +44,33 @@ exports.registerUsuario = async (req, res) => {
                 senha_usuario
             });
 
-            console.log('Usuário registrado com sucesso!');
-            console.log(usuario);
+            // Gerar token
+            const token = jwt.sign({ 
 
-            console.log('Redirecionando para /');
-            res.redirect('/');
+                id_usuario: usuario.id_usuario, 
+                nome_usuario: usuario.nome_usuario, 
+                email_usuario: usuario.email_usuario,
+                cpf_usuario: usuario.cpf_usuario,
+                telefone_usuario: usuario.telefone_usuario
+            
+            }, process.env.SECRET_KEY, {
+                expiresIn: '1h'
+            });
+
+            res.cookie('jwt', token);
+
+            return res.redirect('/entrar');
+
         }
+
     } catch (error) {
+
         console.error('Erro ao registrar usuário:', error);
         res.status(500).json({ error: error.message });
-    }
-};
 
+    }
+
+};
 
 // Função para logar usuário
 exports.loginUsuario = async (req, res) => {
@@ -125,4 +140,31 @@ exports.pegarUsuarioAtravesDoToken = async (token) => {
             console.error('Erro ao pegar usuário:', error);
         }
     
+};
+
+// Função para deletar usuário
+exports.deletarUsuario = async (req, res) => {
+
+    const usuario = await this.pegarUsuarioAtravesDoToken(req.cookies.jwt);
+
+    console.log(usuario);   
+    
+    const id_usuario = usuario.id_usuario;
+
+    try {
+        console.log('Deletando usuário...');
+
+        await Usuario.destroy({ where: { id_usuario } });
+
+        res.clearCookie('jwt');
+
+        res.redirect('/entrar');
+
+    } catch (error) {
+
+        console.error('Erro ao deletar usuário:', error);
+        res.status(500).json({ error: error.message });
+
+    }
+
 };

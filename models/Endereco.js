@@ -1,10 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');// Importa as classes Model e DataTypes do Sequelize
 
-const sequelize = require('../config/database');
+const sequelize = require('../config/database'); // Importa a instância do Sequelize configurada
 
-class Endereco extends Model { }
+class Endereco extends Model { } // Define a classe Endereco que extende a classe Model do Sequelize
 
-Endereco.init({
+Endereco.init({ // Inicializa a classe Endereco com os atributos abaixo
 
     id_endereco: {
         type: DataTypes.INTEGER,

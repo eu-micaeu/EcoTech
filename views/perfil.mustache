@@ -69,11 +69,17 @@
     <div class="enderecos">
 
         <select id="escolher-endereco">
+
             {{#enderecos}}
-            <option value="{{id_endereco}}" {{#selected}}selected="selected"{{/selected}}>
+
+            <option value="{{id_endereco}}" selected="selected">
+
                 {{logradouro_endereco}}
+
             </option>
+
             {{/enderecos}}
+
         </select>
     
         {{#enderecos}}
@@ -123,16 +129,32 @@
 
         <button id="botao-adicionar-enderecos"> Adicionar Endereços </button>
 
-
         </div>
 
     </div>
 
-    <form action="/usuario/deletarUsuario" method="delete">
+    <form id="deleteForm"  action="/usuario/deletarUsuario" method="post">
 
         <button type="submit" id="botaoDeletarConta"> DELETAR CONTA </button>
     
     </form>
+
+    <!-- Modal de confirmação da exclusão da conta -->
+
+    <div id="deletarModal" class="deletarModal">
+
+        <div class="modalContent">
+
+            <h3>Sua conta será excluída </h3>
+
+            <p>Confirma a exclusão?</p>
+
+            <button id="botaoNao">Não</button>
+            <button id="botaoSim">Sim</button>
+
+        </div>
+
+    </div>
 
     {{/usuario}}
 
@@ -167,6 +189,7 @@
         </div>
     </div>
 
+    <!-- Rodapé da página -->
 
     <footer>
 

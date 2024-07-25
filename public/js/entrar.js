@@ -2,13 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCsAvA-7jRUovyvslDdw465v8o0FQGeR3Y",
-    authDomain: "memoriando-71484.firebaseapp.com",
-    projectId: "memoriando-71484",
-    storageBucket: "memoriando-71484.appspot.com",
-    messagingSenderId: "669283409054",
-    appId: "1:669283409054:web:8dc2bf96a64dd374a22f8f",
-    measurementId: "G-0MG2E9MYY6"
+
+    apiKey: "AIzaSyCJCHxA1W7UAZsUXfbfGd0zocn1Og7iDB0",
+    authDomain: "ecotech-13e79.firebaseapp.com",
+    projectId: "ecotech-13e79",
+    storageBucket: "ecotech-13e79.appspot.com",
+    messagingSenderId: "69474015528",
+    appId: "1:69474015528:web:fcc073e30d48c00ff8d81d",
+    measurementId: "G-WFH4FHF69E"
+
 };
 
 const app = initializeApp(firebaseConfig);
@@ -26,12 +28,10 @@ googleLogin.addEventListener('click', () => {
 
         .then((result) => {
 
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-
             const user = result.user;
 
             var data = {
-                
+
                 nome_usuario: user.displayName,
                 email_usuario: user.email,
                 senha_usuario: user.uid,
@@ -54,18 +54,22 @@ googleLogin.addEventListener('click', () => {
 
             })
 
-            .then(response => response.json())
-            
-            .then(data => {
+                .then(response => response.json())
 
-                console.log(data.message);
+                .then(data => {
 
-                if (data.message === 'Usuário já existe!') {
+                    console.log(data.message);
 
-                    window.location.href = '/';
+                    if (data.message === 'Usuário já existe!') {
 
-                }
+                        window.location.href = '/';
 
-            })
+                    }else if (data.message === 'Usuário não existe e foi registrado!') {
 
-    })});
+                        window.location.href = '/';
+                    }
+                    
+                })
+
+        })
+});

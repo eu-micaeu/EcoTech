@@ -13,11 +13,11 @@ app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
-//Cookies
+// Cookies
 const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
-//Sessão
+// Sessão
 const session = require('express-session');
 app.use(session({
     secret: process.env.SECRET_KEY,
@@ -34,5 +34,7 @@ app.use('/usuario', require('./routes/usuarioRoutes'));
 app.use('/endereco', require('./routes/enderecoRoutes'));
 
 app.listen(process.env.PORT, () => {
+
     console.log('Servidor rodando na porta:', process.env.PORT);
+    
 });

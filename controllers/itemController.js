@@ -1,9 +1,10 @@
 const multer = require('multer');
+
 const Item = require('../models/Item');
 
 const usuarioControllers = require('./usuarioController');
 
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({ storage: multer.memoryStorage() }); // Configura o multer para armazenar a imagem em memória ao invés de salvar em disco (necessário para converter a imagem para Base64)
 
 // Função para registrar um item
 exports.registerItem = [
@@ -39,6 +40,8 @@ exports.registerItem = [
                 id_usuario: usuario.id_usuario
             });
 
+            // Se o item for criado com sucesso, mostre um toast de sucesso
+
             console.log(item);
 
             res.redirect('/');
@@ -52,17 +55,22 @@ exports.registerItem = [
 
 // Função para pegar 10 itens para a página inicial
 exports.pegarItens = async () => {
+
     try {
-        // Encontre os primeiros 10 itens no banco de dados
         const itens = await Item.findAll({
+
             limit: 10
+
         });
 
         return itens;
 
     } catch (error) {
+
         throw new Error('Erro ao buscar itens do banco de dados: ' + error.message);
+
     }
+
 };
 
 // Função para pegar item por ID
@@ -84,17 +92,23 @@ exports.pegarItemPorId = async (id) => {
 
 // Função para pegar item por departamento
 exports.pegarItensPorDepartamento = async (id) => {
+
     try {
-        // Encontre os itens no banco de dados que possuem o departamento fornecido
+
         const itens = await Item.findAll({
+
             where: {
+
                 id_departamento: id
+
             }
+
         });
 
         return itens;
 
     } catch (error) {
+        
         throw new Error('Erro ao buscar itens por departamento: ' + error.message);
     }
 };
